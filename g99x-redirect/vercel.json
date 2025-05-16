@@ -3,19 +3,15 @@
     {
       "source": "/(.*)",
       "headers": [
-        // 新增关键标头
+        // 新增强制标头
         {
           "key": "Strict-Transport-Security",
-          "value": "max-age=63072000; includeSubDomains; preload"
+          "value": "max-age=63072000; includeSubDomains; preload",
+          "override": true
         },
         {
           "key": "Permissions-Policy",
-          "value": "geolocation=(), microphone=() 'none'; camera=() 'none'"
-        },
-        // 强制覆盖Cloudflare默认设置
-        {
-          "key": "X-Frame-Options",
-          "value": "DENY",
+          "value": "geolocation=(), microphone=() 'none', camera=() 'none'",
           "override": true
         }
       ]
