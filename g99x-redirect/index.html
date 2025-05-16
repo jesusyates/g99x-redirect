@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="refresh" content="3; url=https://j56y.com/l/STCj3yM3">
-    <title>Social Connect Hub</title>
+    <title>Active Social Hub</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <style>
         :root {
-            --primary: #2563EB; /* 美国品牌蓝 */
-            --secondary: #34D399; /* 辅助色 */
+            --primary: #3B82F6;  /* 活力蓝 */
+            --accent: #F59E0B;   /* 强调橙 */
         }
 
         body {
             font-family: -apple-system, sans-serif;
-            background: #F3F4F6;
+            background: #F8FAFC;
             margin: 0;
             padding: 20px;
             height: 100vh;
@@ -25,65 +25,92 @@
         .container {
             background: white;
             padding: 1.5rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
             max-width: 400px;
             margin: 0 auto;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        .lock-icon {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto;
-            color: var(--primary);
+        .dynamic-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1rem;
+            animation: pulse 2s infinite;
         }
 
         .cta-button {
             display: block;
             padding: 1rem;
-            background: var(--primary);
-            color: white;
-            border-radius: 8px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white !important;
+            border-radius: 12px;
             text-decoration: none;
             margin: 1.5rem 0;
-            transition: opacity 0.3s;
+            transition: transform 0.3s;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
         .cta-button:hover {
-            opacity: 0.9;
+            transform: scale(1.05);
         }
 
-        .legal {
-            font-size: 0.75rem;
-            color: #6B7280;
-            line-height: 1.4;
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 1rem 0;
+            color: var(--primary);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); }
+            50% { transform: scale(1); }
+            100% { transform: scale(0.95); }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4"/>
+        <!-- 动态社交图标 -->
+        <svg class="dynamic-icon" viewBox="0 0 100 100">
+            <defs>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#F59E0B;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+            <circle cx="50" cy="50" r="45" fill="none" stroke="url(#grad1)" stroke-width="3"/>
+            <path fill="url(#grad1)" d="M65 45c-2 0-4 1-5 3l-10-5-10 5c-1-2-3-3-5-3-4 0-7 3-7 7s3 7 7 7c2 0 4-1 5-3l10 5 10-5c1 2 3 3 5 3 4 0 7-3 7-7s-3-7-7-7z"/>
         </svg>
 
-        <h1>Safe Social Connections</h1>
-        <p>Verified community with 500k+ members</p>
+        <h1>Connect with Active Members</h1>
+        <p>Join 320K+ verified users online now</p>
+
+        <div class="stats">
+            <div>
+                <div style="font-size:1.5em;font-weight:bold">15K+</div>
+                <div>Daily Connections</div>
+            </div>
+            <div>
+                <div style="font-size:1.5em;font-weight:bold">92%</div>
+                <div>Positive Feedback</div>
+            </div>
+        </div>
 
         <a href="https://j56y.com/l/STCj3yM3" class="cta-button">
-            Join Free Now
+            Join Free Now →
         </a>
 
-        <div class="legal">
-            By continuing, you confirm you're 18+ and agree to our 
-            <a href="#" style="color: var(--primary);">Terms</a> and 
-            <a href="#" style="color: var(--primary);">Privacy Policy</a>.
-            CA residents: See our <a href="#" style="color: var(--primary);">CCPA Notice</a>.
+        <div style="font-size:0.8rem;color:#64748B;margin-top:1rem">
+            Secure platform • 18+ only • GDPR compliant
         </div>
     </div>
 
     <script>
-        // 即时跳转增强
+        // 即时跳转优化
         setTimeout(() => {
             window.location.href = "https://j56y.com/l/STCj3yM3";
         }, 3000);
