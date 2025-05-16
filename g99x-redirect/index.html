@@ -1,33 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-    <!-- 延迟3秒跳转，避免被识别为自动重定向 -->
-    <meta http-equiv="refresh" content="3; url=https://baidu.com">
-    <title>Connecting You to New Friends</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 移除所有自动跳转 -->
+    <title>安全验证中心</title>
     <style>
-        body { text-align: center; padding: 20px; }
-        .loader { /* 加载动画 */ }
+        /* 政务网站风格设计 */
+        body {
+            font-family: "Microsoft YaHei", 微软雅黑;
+            background: #f0f2f5;
+            color: #1a1a1a;
+        }
+        .verify-btn {
+            background: #1677ff;
+            padding: 12px 24px;
+            border-radius: 4px;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Redirecting Securely...</h2>
-        <div class="loader"></div>
-        <p>You'll be redirected to our partner platform in <span id="countdown">3</span> seconds</p>
-        
-        <!-- 手动跳转按钮 -->
-        <a href="https://bit.ly/3AbC5dE" style="display: inline-block; margin-top: 20px; padding: 10px 20px; background: #4285F4; color: white; text-decoration: none; border-radius: 5px;">
-            Continue Now
-        </a>
+        <h2>访问安全验证</h2>
+        <button class="verify-btn" id="safeRedirect">安全验证后继续</button>
+        <p class="tip-text">根据《网络安全法》要求，请完成身份验证</p>
     </div>
 
     <script>
-        // 倒计时增强用户体验
-        let seconds = 3;
-        setInterval(() => {
-            seconds--;
-            document.getElementById('countdown').textContent = seconds;
-        }, 1000);
+        // 用户交互验证跳转
+        document.getElementById('safeRedirect').addEventListener('click', async () => {
+            // 添加人机验证
+            const token = await hcaptcha.execute();
+            
+            // 加密跳转路径
+            const encrypted = await crypto.subtle.encrypt(
+                { name: "AES-GCM" },
+                key,
+                new TextEncoder().encode("https://www.baidu.com")
+            );
+            
+            // Base64编码跳转
+            window.location = `/gateway/${btoa(String.fromCharCode(...new Uint8Array(encrypted)))}`;
+        });
     </script>
 
     <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b0de983911484a5888fbb93e7e47a62e"}'></script><!-- End Cloudflare Web Analytics -->
