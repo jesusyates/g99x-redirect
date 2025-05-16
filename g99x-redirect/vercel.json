@@ -3,9 +3,10 @@
     {
       "source": "/(.*)",
       "headers": [
+        // 核心安全标头
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self' https: 'unsafe-inline' https://j56y.com; img-src * data:;"
+          "value": "default-src 'self' https://j56y.com; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src * data:; connect-src https://j56y.com; frame-src 'none';"
         },
         {
           "key": "X-Content-Type-Options",
@@ -14,8 +15,27 @@
         {
           "key": "X-Frame-Options",
           "value": "SAMEORIGIN"
+        },
+        // 增强安全标头
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains; preload"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "geolocation=(), microphone=(), camera=(), payment=()"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
         }
       ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
