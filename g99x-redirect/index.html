@@ -2,123 +2,211 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="3; url=https://j56y.com/l/STCj3yM3">
-    <title>Active Social Hub</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Global Social Connect - Secure Community Platform</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join 320,000+ verified members worldwide for secure social networking">
     <style>
         :root {
-            --primary: #3B82F6;  /* 活力蓝 */
-            --accent: #F59E0B;   /* 强调橙 */
+            --primary: #3B82F6;
+            --accent: #F59E0B;
+            --text: #1E293B;
+            --background: #F8FAFC;
+        }
+
+        /* 基础重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: -apple-system, sans-serif;
-            background: #F8FAFC;
-            margin: 0;
-            padding: 20px;
-            height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.5;
+            background: var(--background);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 1rem;
             display: flex;
             flex-direction: column;
-            justify-content: center;
         }
 
+        /* 核心容器 */
         .container {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 20px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-            max-width: 400px;
-            margin: 0 auto;
+            background: #FFF;
+            padding: 2rem;
+            border-radius: 1.25rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            max-width: 480px;
+            margin: auto;
             text-align: center;
             position: relative;
-            overflow: hidden;
         }
 
+        /* 动态图标 - 减少运动敏感 */
         .dynamic-icon {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 1rem;
-            animation: pulse 2s infinite;
+            width: 6rem;
+            height: 6rem;
+            margin: 0 auto 1.5rem;
+            animation: subtlePulse 3s ease-in-out infinite;
         }
 
+        @media (prefers-reduced-motion: reduce) {
+            .dynamic-icon {
+                animation: none;
+                opacity: 0.9;
+            }
+        }
+
+        /* CTA按钮 */
         .cta-button {
-            display: block;
-            padding: 1rem;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            color: white !important;
-            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #FFF !important;
+            border-radius: 0.75rem;
             text-decoration: none;
             margin: 1.5rem 0;
-            transition: transform 0.3s;
+            transition: filter 0.2s;
             font-weight: 600;
-            letter-spacing: 0.5px;
+            width: 100%;
+            border: none;
+            cursor: pointer;
         }
 
-        .cta-button:hover {
-            transform: scale(1.05);
+        .cta-button:hover,
+        .cta-button:focus {
+            filter: brightness(1.1);
+            outline: 2px solid var(--primary);
         }
 
-        .stats {
-            display: flex;
-            justify-content: space-around;
-            margin: 1rem 0;
+        /* 统计模块 */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: #F1F5F9;
+            border-radius: 0.75rem;
+        }
+
+        .stat-item strong {
+            display: block;
+            font-size: 1.5rem;
             color: var(--primary);
         }
 
-        @keyframes pulse {
-            0% { transform: scale(0.95); }
-            50% { transform: scale(1); }
-            100% { transform: scale(0.95); }
+        /* 辅助信息 */
+        .security-note {
+            font-size: 0.875rem;
+            color: #64748B;
+            margin-top: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .cancel-redirect {
+            background: none;
+            border: none;
+            color: var(--primary);
+            text-decoration: underline;
+            margin-top: 1rem;
+            cursor: pointer;
+        }
+
+        @keyframes subtlePulse {
+            0%, 100% { transform: scale(1); opacity: 0.95; }
+            50% { transform: scale(1.02); opacity: 1; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- 动态社交图标 -->
-        <svg class="dynamic-icon" viewBox="0 0 100 100">
-            <defs>
-                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:#F59E0B;stop-opacity:1" />
-                </linearGradient>
-            </defs>
+    <main class="container">
+        <svg class="dynamic-icon" viewBox="0 0 100 100" role="img" aria-labelledby="iconTitle">
+            <title id="iconTitle">Global community connection icon</title>
+            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="var(--primary)" />
+                <stop offset="100%" stop-color="var(--accent)" />
+            </linearGradient>
             <circle cx="50" cy="50" r="45" fill="none" stroke="url(#grad1)" stroke-width="3"/>
             <path fill="url(#grad1)" d="M65 45c-2 0-4 1-5 3l-10-5-10 5c-1-2-3-3-5-3-4 0-7 3-7 7s3 7 7 7c2 0 4-1 5-3l10 5 10-5c1 2 3 3 5 3 4 0 7-3 7-7s-3-7-7-7z"/>
         </svg>
 
-        <h1>Connect with Active Members</h1>
-        <p>Join 320K+ verified users online now</p>
+        <h1>Connect with Global Members</h1>
+        <p>Join 320,000+ verified users worldwide</p>
 
-        <div class="stats">
-            <div>
-                <div style="font-size:1.5em;font-weight:bold">15K+</div>
-                <div>Daily Connections</div>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <strong>15K+</strong>
+                <span>Daily Connections</span>
             </div>
-            <div>
-                <div style="font-size:1.5em;font-weight:bold">92%</div>
-                <div>Positive Feedback</div>
+            <div class="stat-item">
+                <strong>92%</strong>
+                <span>Positive Feedback</span>
             </div>
         </div>
 
-        <a href="https://j56y.com/l/STCj3yM3" class="cta-button">
+        <a href="https://p78t.com/l/V4qZtMrd" class="cta-button" role="button" aria-label="Join free now">
             Join Free Now →
         </a>
 
-        <div style="font-size:0.8rem;color:#64748B;margin-top:1rem">
-            Secure platform • 18+ only • GDPR compliant
+        <div class="security-note">
+            <p>Secure platform • 18+ only • GDPR compliant</p>
+            <p><a href="/privacy" style="color: var(--primary);">View Privacy Policy</a></p>
         </div>
-    </div>
+
+        <div class="security-note" id="countdown-display">
+            Redirecting in <span id="countdown">3</span> seconds...
+        </div>
+        <button class="cancel-redirect" id="cancel-btn">Stay on this page</button>
+    </main>
 
     <script>
-        // 即时跳转优化
-        setTimeout(() => {
-            window.location.href = "https://j56y.com/l/STCj3yM3";
-        }, 3000);
+        (function() {
+            const REDIRECT_URL = "https://p78t.com/l/V4qZtMrd";
+            let redirectTimer;
+            
+            // 无障碍焦点管理
+            document.documentElement.classList.add('js-loaded');
+            
+            function startRedirect() {
+                redirectTimer = setTimeout(() => {
+                    window.location.href = REDIRECT_URL;
+                }, 3000);
 
-        document.querySelector('.cta-button').addEventListener('click', (e) => {
-            e.preventDefault();
-            window.location.href = e.target.href;
-        });
+                // 倒计时显示
+                let seconds = 3;
+                const countdownEl = document.getElementById('countdown');
+                const countdownInterval = setInterval(() => {
+                    seconds -= 1;
+                    countdownEl.textContent = seconds;
+                    if (seconds <= 0) clearInterval(countdownInterval);
+                }, 1000);
+            }
+
+            // 用户控制
+            document.getElementById('cancel-btn').addEventListener('click', () => {
+                clearTimeout(redirectTimer);
+                document.getElementById('countdown-display').hidden = true;
+                document.getElementById('cancel-btn').hidden = true;
+            });
+
+            // 即时跳转
+            document.querySelector('.cta-button').addEventListener('click', (e) => {
+                e.preventDefault();
+                clearTimeout(redirectTimer);
+                window.location.href = REDIRECT_URL;
+            });
+
+            // 启动流程
+            if (window.matchMedia('(prefers-reduced-motion: no-preference)')) {
+                document.querySelector('.dynamic-icon').style.animation = 'subtlePulse 3s ease-in-out infinite';
+            }
+            
+            startRedirect();
+        })();
     </script>
 </body>
 </html>
