@@ -2,198 +2,164 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Global Social Connect - Secure Community Platform</title>
+    <title>Global Social Connect</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Join 320,000+ verified members worldwide for secure social networking">
-    <!-- 新增AI生成内容声明 -->
-    <meta name="generator" content="AI-generated content">
+    <meta name="description" content="Join 320,000+ verified users worldwide">
     <style>
         :root {
             --primary: #3B82F6;
             --accent: #F59E0B;
             --text: #1E293B;
-            --background: #F8FAFC;
+            --bg: #F8FAFC;
+            --card-bg: #FFFFFF;
         }
-
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: #F8FAFC;
+            background: var(--bg);
             color: var(--text);
             min-height: 100vh;
-            padding: 1rem;
+            padding: 20px;
             display: flex;
-            flex-direction: column;
-        }
-
-        .hero-image {
-            width: 100%;
-            height: 280px; /* 稍微增加高度 */
-            object-fit: cover;
-            border-radius: 1rem 1rem 0 0;
-            background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%);
-            display: flex;
-            align-items: center;
             justify-content: center;
-            overflow: hidden;
-            position: relative;
+            align-items: center;
         }
-
-        .hero-image::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
-        }
-
-        .hero-image img {
+        
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            max-width: 420px;
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .container {
-            background: #FFF;
-            border-radius: 0 0 1rem 1rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            max-width: 480px;
-            margin: 0 auto 2rem;
+            padding: 40px 30px;
             text-align: center;
-            position: relative;
         }
-
-        .dynamic-icon {
-            width: 6rem;
-            height: 6rem;
-            margin: -3rem auto 1rem;
-            position: relative;
-            z-index: 2;
-            background: white;
-            border-radius: 50%;
-            padding: 0.5rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            border: 3px solid white;
+        
+        h1 {
+            font-size: 28px;
+            margin-bottom: 16px;
+            color: var(--primary);
         }
-
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
+        
+        .lead {
+            font-size: 18px;
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+        
+        .stats {
+            display: flex;
             justify-content: center;
-            padding: 1rem 2rem;
+            gap: 24px;
+            margin: 28px 0;
+        }
+        
+        .stat {
+            font-size: 16px;
+        }
+        
+        .stat strong {
+            display: block;
+            font-size: 24px;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }
+        
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #E2E8F0, transparent);
+            margin: 28px 0;
+        }
+        
+        .btn {
+            display: inline-block;
             background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: #FFF !important;
-            border-radius: 0.75rem;
+            color: white !important;
+            padding: 16px 32px;
+            border-radius: 12px;
             text-decoration: none;
-            margin: 1.5rem 0;
-            transition: all 0.3s ease;
             font-weight: 600;
+            font-size: 18px;
             width: 100%;
             border: none;
             cursor: pointer;
-            position: relative;
-            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
         }
-
-        .cta-button:hover {
+        
+        .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(59, 130, 246, 0.25);
+            box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3);
         }
-
-        .cta-button:active {
-            transform: translateY(0);
+        
+        .notice {
+            font-size: 14px;
+            color: #64748B;
+            margin-top: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
-
-        /* 其余样式保持不变... */
+        
+        .notice strong {
+            color: var(--text);
+        }
     </style>
 </head>
 <body>
-    <div class="hero-image">
-        <!-- 更新为更高清的AI生成图片 -->
-        <img src="https://i.imgur.com/JK4lX9h.jpg" 
-             alt="Professional european woman portrait" 
-             loading="eager"> <!-- 首图立即加载 -->
-    </div>
-
-    <main class="container">
-        <svg class="dynamic-icon" viewBox="0 0 100 100" role="img" aria-labelledby="iconTitle">
-            <title id="iconTitle">Global community connection icon</title>
-            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="var(--primary)" />
-                <stop offset="100%" stop-color="var(--accent)" />
-            </linearGradient>
-            <circle cx="50" cy="50" r="45" fill="none" stroke="url(#grad1)" stroke-width="3"/>
-            <path fill="url(#grad1)" d="M65 45c-2 0-4 1-5 3l-10-5-10 5c-1-2-3-3-5-3-4 0-7 3-7 7s3 7 7 7c2 0 4-1 5-3l10 5 10-5c1 2 3 3 5 3 4 0 7-3 7-7s-3-7-7-7z"/>
-        </svg>
-
+    <div class="card">
         <h1>Connect with Global Members</h1>
-        <p>Join 320,000+ verified users worldwide</p>
-
-        <div class="stats-grid">
-            <div class="stat-item">
+        <p class="lead">Join 320,000+ verified users worldwide</p>
+        
+        <div class="stats">
+            <div class="stat">
                 <strong>15K+</strong>
                 <span>Daily Connections</span>
             </div>
-            <div class="stat-item">
+            <div class="stat">
                 <strong>92%</strong>
                 <span>Positive Feedback</span>
             </div>
         </div>
-
+        
+        <div class="divider"></div>
+        
         <a href="https://j56y.com/l/STCj3yM3" 
-           class="cta-button" 
-           id="redirect-button"
+           class="btn"
            rel="noopener noreferrer"
            target="_blank"
-           aria-label="Join our partner platform (opens in new tab)">
+           aria-label="Join our partner platform">
            Join Free Now →
         </a>
-
-        <div class="partner-notice">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+        
+        <p class="notice">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="12" cy="12" r="10"></circle>
                 <line x1="12" y1="8" x2="12" y2="12"></line>
                 <line x1="12" y1="16" x2="12.01" y2="16"></line>
             </svg>
             You'll be redirected to: <strong>partner-dating-platform.com</strong>
-        </div>
-
-        <div class="security-note">
-            <p>Secure platform • 18+ only • GDPR compliant</p>
-            <p><a href="https://j56y.com/l/STCj3yM3" style="color: var(--primary);" rel="noopener noreferrer">Privacy Policy</a></p>
-        </div>
-    </main>
+        </p>
+    </div>
 
     <script>
-        (function() {
-            document.addEventListener('DOMContentLoaded', function() {
-                const redirectButton = document.getElementById('redirect-button');
-                const PARTNER_URL = "https://j56y.com/l/STCj3yM3";
-                
-                // 增强型跳转逻辑
-                redirectButton.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    // 添加点击动画
-                    this.style.transform = 'scale(0.98)';
-                    setTimeout(() => {
-                        this.style.transform = '';
-                        window.open(PARTNER_URL, '_blank', 'noopener,noreferrer');
-                    }, 150);
+        // 增强点击跟踪（可选）
+        document.querySelector('.btn').addEventListener('click', function() {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-123456789/AbCdEfGhIjKl',
+                    'value': 1.0,
+                    'currency': 'USD'
                 });
-
-                // 预加载重要资源
-                const img = new Image();
-                img.src = "https://i.imgur.com/JK4lX9h.jpg";
-            });
-        })();
+            }
+        });
     </script>
 </body>
 </html>
