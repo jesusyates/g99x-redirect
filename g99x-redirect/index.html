@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Global Social Connect - Secure Community Platform</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Join 320,000+ verified members worldwide for secure social networking">
+    <meta name="description" content="Join our verified community for secure social networking">
     <style>
         :root {
             --primary: #3B82F6;
@@ -13,7 +13,6 @@
             --background: #F8FAFC;
         }
 
-        /* 基础重置 */
         * {
             margin: 0;
             padding: 0;
@@ -31,7 +30,6 @@
             flex-direction: column;
         }
 
-        /* 核心容器 */
         .container {
             background: #FFF;
             padding: 2rem;
@@ -43,22 +41,18 @@
             position: relative;
         }
 
-        /* 动态图标 - 减少运动敏感 */
         .dynamic-icon {
             width: 6rem;
             height: 6rem;
             margin: 0 auto 1.5rem;
-            animation: subtlePulse 3s ease-in-out infinite;
         }
 
-        @media (prefers-reduced-motion: reduce) {
+        @media (prefers-reduced-motion: no-preference) {
             .dynamic-icon {
-                animation: none;
-                opacity: 0.9;
+                animation: subtlePulse 3s ease-in-out infinite;
             }
         }
 
-        /* CTA按钮 */
         .cta-button {
             display: inline-flex;
             align-items: center;
@@ -76,13 +70,11 @@
             cursor: pointer;
         }
 
-        .cta-button:hover,
-        .cta-button:focus {
+        .cta-button:hover {
             filter: brightness(1.1);
             outline: 2px solid var(--primary);
         }
 
-        /* 统计模块 */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -99,7 +91,6 @@
             color: var(--primary);
         }
 
-        /* 辅助信息 */
         .security-note {
             font-size: 0.875rem;
             color: #64748B;
@@ -114,6 +105,14 @@
             text-decoration: underline;
             margin-top: 1rem;
             cursor: pointer;
+        }
+
+        .partner-notice {
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+            background: #F1F5F9;
+            border-radius: 0.5rem;
         }
 
         @keyframes subtlePulse {
@@ -135,7 +134,7 @@
         </svg>
 
         <h1>Connect with Global Members</h1>
-        <p>Join 320,000+ verified users worldwide</p>
+        <p>Join our verified community platform</p>
 
         <div class="stats-grid">
             <div class="stat-item">
@@ -148,64 +147,40 @@
             </div>
         </div>
 
-        <a href="https://j56y.com/l/STCj3yM3" class="cta-button" role="button" aria-label="Join free now">
-            Join Free Now →
+        <a href="https://partner-dating-platform.com/ref/sexygirlxyz" 
+           class="cta-button" 
+           id="redirect-button"
+           rel="noopener noreferrer"
+           target="_blank"
+           aria-label="Join our partner platform (opens in new tab)">
+           Join Free Now →
         </a>
+
+        <div class="partner-notice">
+            You'll be redirected to our partner site: <strong>partner-dating-platform.com</strong>
+        </div>
 
         <div class="security-note">
             <p>Secure platform • 18+ only • GDPR compliant</p>
-            <p><a href="/privacy" style="color: var(--primary);">View Privacy Policy</a></p>
+            <p><a href="https://sexygirl.xyz/privacy" style="color: var(--primary);" rel="noopener">Privacy Policy</a></p>
         </div>
-
-        <div class="security-note" id="countdown-display">
-            Redirecting in <span id="countdown">3</span> seconds...
-        </div>
-        <button class="cancel-redirect" id="cancel-btn">Stay on this page</button>
     </main>
 
     <script>
         (function() {
-            const REDIRECT_URL = "https://j56y.com/l/STCj3yM3";
-            let redirectTimer;
-            
-            // 无障碍焦点管理
-            document.documentElement.classList.add('js-loaded');
-            
-            function startRedirect() {
-                redirectTimer = setTimeout(() => {
-                    window.location.href = REDIRECT_URL;
-                }, 3000);
-
-                // 倒计时显示
-                let seconds = 3;
-                const countdownEl = document.getElementById('countdown');
-                const countdownInterval = setInterval(() => {
-                    seconds -= 1;
-                    countdownEl.textContent = seconds;
-                    if (seconds <= 0) clearInterval(countdownInterval);
-                }, 1000);
-            }
-
-            // 用户控制
-            document.getElementById('cancel-btn').addEventListener('click', () => {
-                clearTimeout(redirectTimer);
-                document.getElementById('countdown-display').hidden = true;
-                document.getElementById('cancel-btn').hidden = true;
+            // 确保DOM加载完成
+            document.addEventListener('DOMContentLoaded', function() {
+                const redirectButton = document.getElementById('redirect-button');
+                
+                // 替换为您的实际合作伙伴链接
+                const PARTNER_URL = "https://partner-dating-platform.com/ref/sexygirlxyz";
+                
+                // 用户点击主按钮时跳转（已包含安全属性）
+                redirectButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.open(PARTNER_URL, '_blank', 'noopener,noreferrer');
+                });
             });
-
-            // 即时跳转
-            document.querySelector('.cta-button').addEventListener('click', (e) => {
-                e.preventDefault();
-                clearTimeout(redirectTimer);
-                window.location.href = REDIRECT_URL;
-            });
-
-            // 启动流程
-            if (window.matchMedia('(prefers-reduced-motion: no-preference)')) {
-                document.querySelector('.dynamic-icon').style.animation = 'subtlePulse 3s ease-in-out infinite';
-            }
-            
-            startRedirect();
         })();
     </script>
 </body>
