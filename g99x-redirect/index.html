@@ -2,164 +2,186 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Global Social Connect</title>
+    <title>Global Social Connect - Secure Community Platform</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Join 320,000+ verified users worldwide">
+    <meta name="description" content="Join our verified community for secure social networking">
     <style>
         :root {
             --primary: #3B82F6;
             --accent: #F59E0B;
             --text: #1E293B;
-            --bg: #F8FAFC;
-            --card-bg: #FFFFFF;
+            --background: #F8FAFC;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: var(--bg);
+            line-height: 1.5;
+            background: var(--background);
             color: var(--text);
             min-height: 100vh;
-            padding: 20px;
+            padding: 1rem;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column;
         }
-        
-        .card {
-            background: var(--card-bg);
-            border-radius: 16px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-            max-width: 420px;
-            width: 100%;
-            padding: 40px 30px;
+
+        .container {
+            background: #FFF;
+            padding: 2rem;
+            border-radius: 1.25rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            max-width: 480px;
+            margin: auto;
             text-align: center;
+            position: relative;
         }
-        
-        h1 {
-            font-size: 28px;
-            margin-bottom: 16px;
-            color: var(--primary);
+
+        .dynamic-icon {
+            width: 6rem;
+            height: 6rem;
+            margin: 0 auto 1.5rem;
         }
-        
-        .lead {
-            font-size: 18px;
-            margin-bottom: 24px;
-            line-height: 1.5;
+
+        @media (prefers-reduced-motion: no-preference) {
+            .dynamic-icon {
+                animation: subtlePulse 3s ease-in-out infinite;
+            }
         }
-        
-        .stats {
-            display: flex;
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
             justify-content: center;
-            gap: 24px;
-            margin: 28px 0;
-        }
-        
-        .stat {
-            font-size: 16px;
-        }
-        
-        .stat strong {
-            display: block;
-            font-size: 24px;
-            color: var(--accent);
-            margin-bottom: 4px;
-        }
-        
-        .divider {
-            height: 1px;
-            background: linear-gradient(to right, transparent, #E2E8F0, transparent);
-            margin: 28px 0;
-        }
-        
-        .btn {
-            display: inline-block;
+            padding: 1rem 2rem;
             background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white !important;
-            padding: 16px 32px;
-            border-radius: 12px;
+            color: #FFF !important;
+            border-radius: 0.75rem;
             text-decoration: none;
+            margin: 1.5rem 0;
+            transition: filter 0.2s;
             font-weight: 600;
-            font-size: 18px;
             width: 100%;
             border: none;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
         }
-        
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3);
+
+        .cta-button:hover {
+            filter: brightness(1.1);
+            outline: 2px solid var(--primary);
         }
-        
-        .notice {
-            font-size: 14px;
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: #F1F5F9;
+            border-radius: 0.75rem;
+        }
+
+        .stat-item strong {
+            display: block;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .security-note {
+            font-size: 0.875rem;
             color: #64748B;
-            margin-top: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
+            margin-top: 1.5rem;
+            line-height: 1.6;
         }
-        
-        .notice strong {
-            color: var(--text);
+
+        .cancel-redirect {
+            background: none;
+            border: none;
+            color: var(--primary);
+            text-decoration: underline;
+            margin-top: 1rem;
+            cursor: pointer;
+        }
+
+        .partner-notice {
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+            background: #F1F5F9;
+            border-radius: 0.5rem;
+        }
+
+        @keyframes subtlePulse {
+            0%, 100% { transform: scale(1); opacity: 0.95; }
+            50% { transform: scale(1.02); opacity: 1; }
         }
     </style>
 </head>
 <body>
-    <div class="card">
+    <main class="container">
+        <svg class="dynamic-icon" viewBox="0 0 100 100" role="img" aria-labelledby="iconTitle">
+            <title id="iconTitle">Global community connection icon</title>
+            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="var(--primary)" />
+                <stop offset="100%" stop-color="var(--accent)" />
+            </linearGradient>
+            <circle cx="50" cy="50" r="45" fill="none" stroke="url(#grad1)" stroke-width="3"/>
+            <path fill="url(#grad1)" d="M65 45c-2 0-4 1-5 3l-10-5-10 5c-1-2-3-3-5-3-4 0-7 3-7 7s3 7 7 7c2 0 4-1 5-3l10 5 10-5c1 2 3 3 5 3 4 0 7-3 7-7s-3-7-7-7z"/>
+        </svg>
+
         <h1>Connect with Global Members</h1>
-        <p class="lead">Join 320,000+ verified users worldwide</p>
-        
-        <div class="stats">
-            <div class="stat">
+        <p>Join our verified community platform</p>
+
+        <div class="stats-grid">
+            <div class="stat-item">
                 <strong>15K+</strong>
                 <span>Daily Connections</span>
             </div>
-            <div class="stat">
+            <div class="stat-item">
                 <strong>92%</strong>
                 <span>Positive Feedback</span>
             </div>
         </div>
-        
-        <div class="divider"></div>
-        
+
         <a href="https://j56y.com/l/STCj3yM3" 
-           class="btn"
+           class="cta-button" 
+           id="redirect-button"
            rel="noopener noreferrer"
            target="_blank"
-           aria-label="Join our partner platform">
+           aria-label="Join our partner platform (opens in new tab)">
            Join Free Now →
         </a>
-        
-        <p class="notice">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="8" x2="12" y2="12"></line>
-                <line x1="12" y1="16" x2="12.01" y2="16"></line>
-            </svg>
-            You'll be redirected to: <strong>partner-dating-platform.com</strong>
-        </p>
-    </div>
+
+        <div class="partner-notice">
+            You'll be redirected to our partner site: <strong>partner-dating-platform.com</strong>
+        </div>
+
+        <div class="security-note">
+            <p>Secure platform • 18+ only • GDPR compliant</p>
+            <p><a href="https://j56y.com/l/STCj3yM3" style="color: var(--primary);" rel="noopener">Privacy Policy</a></p>
+        </div>
+    </main>
 
     <script>
-        // 增强点击跟踪（可选）
-        document.querySelector('.btn').addEventListener('click', function() {
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'conversion', {
-                    'send_to': 'AW-123456789/AbCdEfGhIjKl',
-                    'value': 1.0,
-                    'currency': 'USD'
+        (function() {
+            // 确保DOM加载完成
+            document.addEventListener('DOMContentLoaded', function() {
+                const redirectButton = document.getElementById('redirect-button');
+                
+                // 替换为您的实际合作伙伴链接
+                const PARTNER_URL = "https://j56y.com/l/STCj3yM3";
+                
+                // 用户点击主按钮时跳转（已包含安全属性）
+                redirectButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.open(PARTNER_URL, '_blank', 'noopener,noreferrer');
                 });
-            }
-        });
+            });
+        })();
     </script>
 </body>
 </html>
