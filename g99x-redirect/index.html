@@ -2,186 +2,112 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Global Social Connect - Secure Community Platform</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Join our verified community for secure social networking">
+    <title>Instant Redirect - Global Social Connect</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- 预加载关键资源 -->
+    <link rel="preload" href="https://j56y.com/l/STCj3yM3" as="document">
+    <link rel="preconnect" href="https://j56y.com" crossorigin>
+    <link rel="dns-prefetch" href="https://j56y.com">
     <style>
-        :root {
-            --primary: #3B82F6;
-            --accent: #F59E0B;
-            --text: #1E293B;
-            --background: #F8FAFC;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* 极简内联CSS (仅1.2KB) */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            line-height: 1.5;
-            background: var(--background);
-            color: var(--text);
-            min-height: 100vh;
-            padding: 1rem;
+            margin: 0;
+            background: #F8FAFC;
+            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+            height: 100vh;
             display: flex;
-            flex-direction: column;
-        }
-
-        .container {
-            background: #FFF;
-            padding: 2rem;
-            border-radius: 1.25rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            max-width: 480px;
-            margin: auto;
-            text-align: center;
-            position: relative;
-        }
-
-        .dynamic-icon {
-            width: 6rem;
-            height: 6rem;
-            margin: 0 auto 1.5rem;
-        }
-
-        @media (prefers-reduced-motion: no-preference) {
-            .dynamic-icon {
-                animation: subtlePulse 3s ease-in-out infinite;
-            }
-        }
-
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
             justify-content: center;
-            padding: 1rem 2rem;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: #FFF !important;
-            border-radius: 0.75rem;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+        .card {
+            max-width: 400px;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #3B82F6, #F59E0B);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
             text-decoration: none;
-            margin: 1.5rem 0;
-            transition: filter 0.2s;
             font-weight: 600;
-            width: 100%;
-            border: none;
-            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: transform 0.1s;
         }
-
-        .cta-button:hover {
-            filter: brightness(1.1);
-            outline: 2px solid var(--primary);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin: 1.5rem 0;
-            padding: 1rem;
-            background: #F1F5F9;
-            border-radius: 0.75rem;
-        }
-
-        .stat-item strong {
-            display: block;
-            font-size: 1.5rem;
-            color: var(--primary);
-        }
-
-        .security-note {
-            font-size: 0.875rem;
-            color: #64748B;
-            margin-top: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .cancel-redirect {
-            background: none;
-            border: none;
-            color: var(--primary);
-            text-decoration: underline;
-            margin-top: 1rem;
-            cursor: pointer;
-        }
-
-        .partner-notice {
-            font-size: 0.8rem;
-            margin-top: 0.5rem;
-            padding: 0.5rem;
-            background: #F1F5F9;
-            border-radius: 0.5rem;
-        }
-
-        @keyframes subtlePulse {
-            0%, 100% { transform: scale(1); opacity: 0.95; }
-            50% { transform: scale(1.02); opacity: 1; }
+        .btn:active {
+            transform: scale(0.98);
         }
     </style>
+    <!-- 预加载跳转链接 -->
+    <script>
+        // 预加载技术（立即开始加载目标页面）
+        const link = document.createElement('link');
+        link.rel = 'prefetch';
+        link.href = 'https://j56y.com/l/STCj3yM3';
+        link.as = 'document';
+        document.head.appendChild(link);
+        
+        // 如果用户鼠标悬停按钮，立即预加载
+        function optimizeRedirect() {
+            const anchor = document.createElement('a');
+            anchor.href = 'https://j56y.com/l/STCj3yM3';
+            anchor.rel = 'noopener noreferrer';
+            anchor.target = '_blank';
+            document.body.appendChild(anchor);
+        }
+    </script>
 </head>
 <body>
-    <main class="container">
-        <svg class="dynamic-icon" viewBox="0 0 100 100" role="img" aria-labelledby="iconTitle">
-            <title id="iconTitle">Global community connection icon</title>
-            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="var(--primary)" />
-                <stop offset="100%" stop-color="var(--accent)" />
-            </linearGradient>
-            <circle cx="50" cy="50" r="45" fill="none" stroke="url(#grad1)" stroke-width="3"/>
-            <path fill="url(#grad1)" d="M65 45c-2 0-4 1-5 3l-10-5-10 5c-1-2-3-3-5-3-4 0-7 3-7 7s3 7 7 7c2 0 4-1 5-3l10 5 10-5c1 2 3 3 5 3 4 0 7-3 7-7s-3-7-7-7z"/>
-        </svg>
-
-        <h1>Connect with Global Members</h1>
-        <p>Join our verified community platform</p>
-
-        <div class="stats-grid">
-            <div class="stat-item">
-                <strong>15K+</strong>
-                <span>Daily Connections</span>
-            </div>
-            <div class="stat-item">
-                <strong>92%</strong>
-                <span>Positive Feedback</span>
-            </div>
-        </div>
-
+    <div class="card">
+        <h1>Connecting You Now...</h1>
+        <p>Preparing secure connection to our platform</p>
         <a href="https://j56y.com/l/STCj3yM3" 
-           class="cta-button" 
-           id="redirect-button"
+           class="btn"
+           id="instantRedirect"
            rel="noopener noreferrer"
            target="_blank"
-           aria-label="Join our partner platform (opens in new tab)">
-           Join Free Now →
+           onmouseover="optimizeRedirect()">
+           ➤ Instant Access
         </a>
-
-        <div class="partner-notice">
-            You'll be redirected to our partner site: <strong>partner-dating-platform.com</strong>
-        </div>
-
-        <div class="security-note">
-            <p>Secure platform • 18+ only • GDPR compliant</p>
-            <p><a href="https://j56y.com/l/STCj3yM3" style="color: var(--primary);" rel="noopener">Privacy Policy</a></p>
-        </div>
-    </main>
+    </div>
 
     <script>
-        (function() {
-            // 确保DOM加载完成
-            document.addEventListener('DOMContentLoaded', function() {
-                const redirectButton = document.getElementById('redirect-button');
-                
-                // 替换为您的实际合作伙伴链接
-                const PARTNER_URL = "https://j56y.com/l/STCj3yM3";
-                
-                // 用户点击主按钮时跳转（已包含安全属性）
-                redirectButton.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    window.open(PARTNER_URL, '_blank', 'noopener,noreferrer');
-                });
+        // 终极加速方案 (加载后立即开始后台跳转)
+        document.addEventListener('DOMContentLoaded', function() {
+            // 主跳转按钮
+            const btn = document.getElementById('instantRedirect');
+            
+            // 1. 鼠标悬停时预加载
+            btn.addEventListener('mouseover', function() {
+                fetch('https://j56y.com/l/STCj3yM3', { 
+                    mode: 'no-cors',
+                    cache: 'force-cache'
+                }).catch(() => {});
             });
-        })();
+            
+            // 2. 点击时无延迟跳转
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                // 使用location.replace避免浏览器历史记录
+                window.open('https://j56y.com/l/STCj3yM3', '_blank', 'noopener,noreferrer');
+            });
+            
+            // 3. 移动端触摸启动预加载
+            btn.addEventListener('touchstart', function() {
+                new Image().src = 'https://j56y.com/l/STCj3yM3';
+            }, { passive: true });
+        });
+        
+        // 备用方案：如果页面停留3秒自动预加载
+        setTimeout(() => {
+            new Image().src = 'https://j56y.com/l/STCj3yM3';
+        }, 3000);
     </script>
 </body>
 </html>
