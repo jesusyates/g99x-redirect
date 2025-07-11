@@ -2,21 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Global Social Connect</title>
+    <title>Global Social Connect - 18+ Only</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="Join 320,000+ verified members worldwide">
-    <!-- 预加载关键资源 -->
-    <link rel="preconnect" href="https://p78t.com/l/B6J09gkL">
-    <link rel="dns-prefetch" href="https://p78t.com/l/B6J09gkL">
-    <link rel="prefetch" href="https://p78t.com/l/B6J09gkL" as="document">
+    <meta name="description" content="Join 320,000+ verified members worldwide (Adults 18+ only)">
     <style>
-        /* 极简内联CSS - 仅关键样式 */
         :root {
-            --primary: #4361ee;  /* 现代蓝 */
-            --accent: #f72585;   /* 活力粉 */
+            --primary: #4361ee;
+            --accent: #f72585;
             --text: #2b2d42;
             --bg: #f8f9fa;
             --card: #ffffff;
+            --warning-red: #ff0000;
         }
         * {
             margin: 0;
@@ -40,21 +36,44 @@
             width: 100%;
             max-width: 400px;
             border-radius: 20px;
-            padding: 40px 30px;
+            padding: 30px;
             box-shadow: 0 15px 30px rgba(0,0,0,0.08);
             text-align: center;
             position: relative;
             overflow: hidden;
         }
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
+        /* 超大警告图片 */
+        .age-restriction {
             width: 100%;
-            height: 8px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
+            max-width: 280px;
+            margin: 0 auto 25px;
+            animation: shake 1.5s infinite;
         }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0) rotate(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-3px) rotate(-1deg); }
+            20%, 40%, 60%, 80% { transform: translateX(3px) rotate(1deg); }
+        }
+        /* 警告标语 */
+        .warning-banner {
+            background: linear-gradient(135deg, #ff2400, #f72585);
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(247, 37, 133, 0.3);
+        }
+        .warning-icon {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+        /* 原有样式... */
         h1 {
             font-size: 28px;
             margin-bottom: 15px;
@@ -63,24 +82,10 @@
             background-clip: text;
             color: transparent;
         }
-        .subtitle {
-            font-size: 16px;
-            color: #64748b;
-            margin-bottom: 25px;
-        }
         .stats {
             display: flex;
             justify-content: space-around;
             margin: 30px 0;
-        }
-        .stat {
-            font-size: 15px;
-        }
-        .stat strong {
-            display: block;
-            font-size: 24px;
-            color: var(--primary);
-            margin-bottom: 5px;
         }
         .btn {
             display: block;
@@ -96,41 +101,25 @@
             width: 100%;
             position: relative;
             overflow: hidden;
-            transition: transform 0.2s;
-        }
-        .btn:active {
-            transform: scale(0.98);
-        }
-        .notice {
-            font-size: 13px;
-            color: #64748b;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-        }
-        .notice strong {
-            color: var(--text);
-        }
-        .loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            transform: translateX(-100%);
-            z-index: 1000;
-            pointer-events: none;
         }
     </style>
 </head>
 <body>
-    <!-- 顶部加载条 -->
-    <div class="loader" id="loader"></div>
-
-    <!-- 主卡片 -->
     <div class="card">
+        <!-- 超大动态警告图片 -->
+        <img class="age-restriction" 
+             src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48Y2lyY2xlIGN4PSIyNTYiIGN5PSIyNTYiIHI9IjI0MCIgZmlsbD0iI2ZmMDAwMCIgb3BhY2l0eT0iMC45Ii8+PHBhdGggZD0iTTM1MiAzNjBMMTUyIDE2MG0yMDAgMEwxNTIgMzYwIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iNDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjx0ZXh0IHg9IjI1MCIgeT0iMzAwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjEyMCIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+MTgrPC90ZXh0Pjwvc3ZnPg==" 
+             alt="18+ ONLY"
+             aria-hidden="true">
+
+        <!-- 闪烁警告标语 -->
+        <div class="warning-banner">
+            <svg class="warning-icon" viewBox="0 0 24 24" fill="white">
+                <path d="M12 2L1 21h22L12 2zm0 4l7.53 13H4.47L12 6zm-1 5v4h2v-4h-2zm0 6v2h2v-2h-2z"/>
+            </svg>
+            RESTRICTED TO ADULTS 18+
+        </div>
+
         <h1>Connect with Global Members</h1>
         <p class="subtitle">Join 320,000+ verified users worldwide</p>
         
@@ -145,62 +134,19 @@
             </div>
         </div>
         
-        <a href="https://p78t.com/l/B6J09gkL" 
-           class="btn"
-           id="instantBtn"
-           rel="noopener noreferrer"
-           target="_blank">
+        <a href="https://p78t.com/l/B6J09gkL" class="btn" id="instantBtn">
            Join Free Now →
         </a>
-        
-        <p class="notice">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="8" x2="12" y2="12"></line>
-                <line x1="12" y1="16" x2="12.01" y2="16"></line>
-            </svg>
-            You'll be redirected to: <strong>partner-platform.com</strong>
-        </p>
     </div>
 
-    <!-- 极速跳转脚本 -->
     <script>
-        // 预加载技术
-        const preload = document.createElement('link');
-        preload.rel = 'preload';
-        preload.href = 'https://p78t.com/l/B6J09gkL';
-        preload.as = 'document';
-        document.head.appendChild(preload);
-        
-        // 隐藏iframe预加载
-        const iframe = document.createElement('iframe');
-        iframe.src = 'https://p78t.com/l/B6J09gkL';
-        iframe.style.display = 'none';
-        document.body.appendChild(iframe);
-        
-        // 即时跳转逻辑
-        const btn = document.getElementById('instantBtn');
-        const loader = document.getElementById('loader');
-        
-        // 触摸开始时就准备跳转
-        btn.addEventListener('touchstart', function() {
-            loader.style.transition = 'transform 0.3s ease';
-            loader.style.transform = 'translateX(0)';
-        }, {passive: true});
-        
-        // 点击时立即跳转（最快路径）
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            loader.style.transform = 'translateX(0)';
-            setTimeout(() => {
-                window.location.href = 'https://p78t.com/l/B6J09gkL';
-            }, 50);
+        // 点击按钮时确认年龄
+        document.getElementById('instantBtn').addEventListener('click', function(e) {
+            if(!confirm("By clicking OK, you confirm you are 18+ years old")) {
+                e.preventDefault();
+                alert("Access Denied: You must be 18+ to enter");
+            }
         });
-        
-        // 双保险：触摸结束也触发
-        btn.addEventListener('touchend', function() {
-            window.location.href = 'https://p78t.com/l/B6J09gkL';
-        }, {passive: true});
     </script>
 </body>
 </html>
