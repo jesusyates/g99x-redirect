@@ -37,6 +37,7 @@
             overflow-x: hidden;
             background-color: var(--dark);
             color: white;
+            touch-action: pan-y;
         }
         
         .background {
@@ -241,7 +242,6 @@
             opacity: 0.9;
         }
         
-        /* 隐藏的iframe预加载 */
         .preloader {
             position: absolute;
             width: 0;
@@ -332,17 +332,47 @@
             preloadLink.as = 'document';
             document.head.appendChild(preloadLink);
             
-            // 所有可点击元素跳转
-            const clickableElements = document.querySelectorAll('a[href^="https://y29v.com"]');
-            clickableElements.forEach(element => {
-                // 触摸设备优化
-                element.addEventListener('touchstart', function() {
-                    window.location.href = this.href;
-                }, {passive: true});
+            // 滑动检测变量
+            let isScrolling = false;
+            let startX, startY;
+            
+            // 监听触摸开始事件
+            document.addEventListener('touchstart', function(e) {
+                startX = e.touches[0].clientX;
+                startY = e.touches[0].clientY;
+                isScrolling = false;
+            }, {passive: true});
+            
+            // 监听触摸移动事件 - 检测是否在滑动
+            document.addEventListener('touchmove', function(e) {
+                const moveX = e.touches[0].clientX;
+                const moveY = e.touches[0].clientY;
                 
+                // 如果移动距离大于10px，认为是滑动
+                if (Math.abs(moveX - startX) > 10 || Math.abs(moveY - startY) > 10) {
+                    isScrolling = true;
+                }
+            }, {passive: true});
+            
+            // 所有可点击元素跳转
+            const clickableElements = document.querySelectorAll('a[href^="https://"]');
+            clickableElements.forEach(element => {
                 // 点击事件
                 element.addEventListener('click', function(e) {
+                    // 如果是滑动操作，则阻止跳转
+                    if (isScrolling) {
+                        e.preventDefault();
+                        return;
+                    }
+                    
                     e.preventDefault();
+                    
+                    // 添加点击反馈
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 200);
+                    
                     // 立即跳转
                     window.location.replace(this.href);
                 });
