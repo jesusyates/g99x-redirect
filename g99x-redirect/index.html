@@ -2,400 +2,129 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NightTalk - Meet Singles Now</title>
-    <meta name="description" content="Meet local singles tonight - Private video chats and dating">
-    <!-- 预加载关键资源 -->
-    <link rel="preconnect" href="https://y29v.com">
-    <link rel="dns-prefetch" href="https://y29v.com">
-    <link rel="prefetch" href="https://y29v.com/l/jc1mkl4g" as="document">
-    <link rel="preload" href="images/4.jpg" as="image">
-    <link rel="preload" href="images/7.jpg" as="image">
-    <link rel="preload" href="images/2.jpg" as="image">
-    <link rel="preload" href="images/3.jpg" as="image">
-    <link rel="preload" href="images/6.jpg" as="image">
+    <title>Global Social Connect - Adults Only</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <style>
         :root {
-            --primary: #ff4d6d;
-            --secondary: #ff758f;
-            --dark: #2b2d42;
-            --light: #f8f9fa;
+            --primary: #4361ee;
+            --accent: #f72585;
+            --text: #2b2d42;
+            --bg: #f8f9fa;
+            --card: #ffffff;
         }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            -webkit-tap-highlight-color: transparent;
         }
-        
         body {
-            margin: 0;
-            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
             min-height: 100vh;
-            overflow-x: hidden;
-            background-color: var(--dark);
-            color: white;
-            touch-action: pan-y;
-        }
-        
-        .background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-        
-        .background img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: brightness(0.7);
-            will-change: transform;
-        }
-        
-        .content {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
             padding: 20px;
-            text-align: center;
-            overflow-y: auto;
-        }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
-        }
-        
-        .main-title {
-            font-size: clamp(28px, 6vw, 42px);
-            font-weight: bold;
-            margin-bottom: 12px;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
-            line-height: 1.2;
-        }
-        
-        .subtitle {
-            font-size: clamp(16px, 3vw, 18px);
-            margin-bottom: 25px;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-            opacity: 0.9;
-        }
-        
-        .profiles {
             display: flex;
             justify-content: center;
-            gap: 12px;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-        }
-        
-        .profile {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            border: 3px solid white;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            animation: pulse 2s infinite;
-            will-change: transform, box-shadow;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 10px rgba(255,255,255,0.5); }
-            50% { transform: scale(1.1); box-shadow: 0 0 20px rgba(255,255,255,0.8); }
-        }
-        
-        .profile:hover {
-            animation: none;
-            transform: scale(1.15);
-            box-shadow: 0 0 25px rgba(255,255,255,1);
-        }
-        
-        .profile img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }
-        
-        .tag-layouts {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-        
-        .tag-layout {
-            display: flex;
             align-items: center;
-            background: rgba(255,255,255,0.15);
-            border-radius: 12px;
-            padding: 12px;
-            text-decoration: none;
-            color: white;
-            transition: transform 0.3s, background 0.3s;
-            will-change: transform;
         }
-        
-        .tag-layout:hover {
-            transform: translateY(-3px);
-            background: rgba(255,255,255,0.25);
+        .card {
+            background: var(--card);
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
         }
-        
-        .tag-image {
-            width: 55px;
-            height: 55px;
-            border-radius: 10px;
-            object-fit: cover;
-            margin-right: 12px;
-            border: 2px solid var(--primary);
+        /* 超大18禁图标 */
+        .adults-only {
+            font-size: 80px;
+            line-height: 1;
+            margin: 0 auto 20px;
+            animation: pulse 1.5s infinite;
+            display: inline-block;
         }
-        
-        .tag-content {
-            flex: 1;
-            text-align: left;
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
-        
-        .tag-title {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-        
-        .tag-description {
-            font-size: 13px;
-            opacity: 0.85;
-            line-height: 1.4;
-        }
-        
-        .cta-button {
-            display: block;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: white;
-            padding: 16px;
-            border-radius: 30px;
-            text-decoration: none;
+        .warning-text {
+            color: #f72585;
             font-weight: bold;
-            font-size: 18px;
-            margin: 0 auto 15px;
-            max-width: 280px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            transition: transform 0.3s, filter 0.3s;
-            will-change: transform;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-3px);
-            filter: brightness(1.1);
-        }
-        
-        .video-btn {
+            margin-bottom: 25px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            color: white;
+        }
+        .btn {
+            display: block;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white !important;
+            padding: 16px;
+            border-radius: 12px;
             text-decoration: none;
-            margin-bottom: 20px;
-            transition: opacity 0.3s;
+            font-weight: 600;
+            margin: 25px 0;
+            border: none;
+            width: 100%;
+            transition: transform 0.2s;
         }
-        
-        .video-btn:hover {
-            opacity: 0.85;
+        .btn:active {
+            transform: scale(0.98);
         }
-        
-        .play-icon {
-            width: 36px;
-            height: 36px;
-            background: rgba(255,255,255,0.3);
-            border-radius: 50%;
+        .stats {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
+            justify-content: space-around;
+            margin: 30px 0;
         }
-        
-        .features {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            font-size: 13px;
-            flex-wrap: wrap;
-        }
-        
-        .feature {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            opacity: 0.9;
-        }
-        
-        .preloader {
-            position: absolute;
-            width: 0;
-            height: 0;
-            overflow: hidden;
+        .stat strong {
+            display: block;
+            font-size: 24px;
+            color: var(--primary);
         }
     </style>
 </head>
 <body>
-    <!-- 背景图 -->
-    <div class="background">
-        <img src="images/4.jpg" alt="Background" loading="eager">
-    </div>
-    
-    <!-- 隐藏的预加载iframe -->
-    <iframe src="https://y29v.com/l/jc1mkl4g" class="preloader" title="Preloader"></iframe>
-    
-    <div class="content">
-        <div>
-            <div class="logo">NightTalk🔞</div>
-            <h1 class="main-title">Meet Hot Singles Tonight</h1>
-            <p class="subtitle">👇Find your perfect match in your neighborhood👇</p>
-            
-            <!-- 闪动的三张图片 -->
-            <div class="profiles">
-                <a href="https://y29v.com/l/jc1mkl4g" class="profile">
-                    <img src="images/7.jpg" alt="Sophia" loading="eager">
-                </a>
-                <a href="https://y29v.com/l/jc1mkl4g" class="profile">
-                    <img src="images/2.jpg" alt="Emma" loading="eager">
-                </a>
-                <a href="https://y29v.com/l/jc1mkl4g" class="profile">
-                    <img src="images/3.jpg" alt="Olivia" loading="eager">
-                </a>
-            </div>
-            
-            <div class="tag-layouts">
-                <a href="https://y29v.com/l/jc1mkl4g" class="tag-layout">
-                    <img src="images/5.jpg" alt="Private Chat" class="tag-image">
-                    <div class="tag-content">
-                        <div class="tag-title">Private Video Chat</div>
-                        <div class="tag-description">Dating sexy girls (neighborhood) One on one sex video with a girl from the neighborhood</div>
-                    </div>
-                </a>
+    <div class="card">
+        <!-- 超大18禁emoji -->
+        <div class="adults-only" aria-label="Adults only">🔞</div>
+        
+        <!-- 简洁警告文字 -->
+        <div class="warning-text">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#f72585">
+                <path d="M12 2L1 21h22L12 2zm0 4l7.53 13H4.47L12 6z"/>
+            </svg>
+            ADULTS 18+ ONLY
+        </div>
 
-                <a href="https://t.me/+5M1LFLrZ6-Y5MDc1" class="tag-layout">
-                    <img src="images/6.jpg" alt="Local Dating" class="tag-image">
-                    <div class="tag-content">
-                        <div class="tag-title">Local Dating</div>
-                        <div class="tag-description">Telegram group, Daily Share Sexy Girls</div>
-                    </div>
-                </a>
+        <h1>Date a beautiful woman in the neighbourhood</h1>
+        
+        <div style="margin: 30px 0;"></div>
+        
+        <p class="subtitle">Join 320,000+ verified users worldwide</p>
+        
+        <div class="stats">
+            <div class="stat">
+                <strong>15K+</strong>
+                <span>Daily Connections</span>
+            </div>
+            <div class="stat">
+                <strong>92%</strong>
+                <span>Positive Feedback</span>
             </div>
         </div>
         
-        <div>
-            <a href="https://y29v.com/l/jc1mkl4g" class="cta-button">Join Now - It's Free</a>
-            
-            <a href="https://y29v.com/l/jc1mkl4g" class="video-btn">
-                <div class="play-icon">▶</div>
-                <span>Watch Video</span>
-            </a>
-            
-            <div class="features">
-                <div class="feature">
-                    <span>✓</span>
-                    <span>Verified</span>
-                </div>
-                <div class="feature">
-                    <span>🔒</span>
-                    <span>Secure</span>
-                </div>
-                <div class="feature">
-                    <span>👥</span>
-                    <span>Real People</span>
-                </div>
-            </div>
-        </div>
+        <a href="https://p78t.com/l/9ayUPlRN" class="btn" id="entryBtn">
+           Enter Now →
+        </a>
     </div>
-    
+
+    <!-- 直接跳转无确认 -->
     <script>
-        // 优化后的跳转逻辑
-        document.addEventListener('DOMContentLoaded', function() {
-            // 预加载完成后立即开始加载目标页面
-            const preloadLink = document.createElement('link');
-            preloadLink.rel = 'preload';
-            preloadLink.href = 'https://y29v.com/l/jc1mkl4g';
-            preloadLink.as = 'document';
-            document.head.appendChild(preloadLink);
-            
-            // 滑动检测变量
-            let isScrolling = false;
-            let startX, startY;
-            
-            // 监听触摸开始事件
-            document.addEventListener('touchstart', function(e) {
-                startX = e.touches[0].clientX;
-                startY = e.touches[0].clientY;
-                isScrolling = false;
-            }, {passive: true});
-            
-            // 监听触摸移动事件 - 检测是否在滑动
-            document.addEventListener('touchmove', function(e) {
-                const moveX = e.touches[0].clientX;
-                const moveY = e.touches[0].clientY;
-                
-                // 如果移动距离大于10px，认为是滑动
-                if (Math.abs(moveX - startX) > 10 || Math.abs(moveY - startY) > 10) {
-                    isScrolling = true;
-                }
-            }, {passive: true});
-            
-            // 所有可点击元素跳转
-            const clickableElements = document.querySelectorAll('a[href^="https://"]');
-            clickableElements.forEach(element => {
-                // 点击事件
-                element.addEventListener('click', function(e) {
-                    // 如果是滑动操作，则阻止跳转
-                    if (isScrolling) {
-                        e.preventDefault();
-                        return;
-                    }
-                    
-                    e.preventDefault();
-                    
-                    // 添加点击反馈
-                    this.style.transform = 'scale(0.95)';
-                    setTimeout(() => {
-                        this.style.transform = '';
-                    }, 200);
-                    
-                    // 立即跳转
-                    window.location.replace(this.href);
-                });
-            });
-            
-            // 移动端优化 - 预加载更多资源
-            if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-                const imgPreload = document.createElement('link');
-                imgPreload.rel = 'preload';
-                imgPreload.href = 'https://y29v.com/favicon.ico';
-                imgPreload.as = 'image';
-                document.head.appendChild(imgPreload);
-            }
-        });
-        
-        // 页面可见时预加载
-        document.addEventListener('visibilitychange', function() {
-            if (document.visibilityState === 'visible') {
-                const iframe = document.createElement('iframe');
-                iframe.src = 'https://y29v.com/l/jc1mkl4g';
-                iframe.style.display = 'none';
-                document.body.appendChild(iframe);
-            }
+        document.getElementById('entryBtn').addEventListener('click', function(e) {
+            // 可在此添加追踪代码
+            // analytics.track('Adult Content Access');
         });
     </script>
 </body>
