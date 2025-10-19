@@ -58,7 +58,10 @@
             gap: 8px;
         }
         .btn {
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
             background: linear-gradient(135deg, var(--primary), var(--accent));
             color: white !important;
             padding: 16px;
@@ -68,10 +71,33 @@
             margin: 25px 0;
             border: none;
             width: 100%;
-            transition: transform 0.2s;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
         }
         .btn:active {
             transform: scale(0.98);
+        }
+        .btn.loading {
+            pointer-events: none;
+            opacity: 0.8;
+        }
+        .btn.loading .btn-text {
+            opacity: 0;
+        }
+        .btn.loading::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid transparent;
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         .stats {
             display: flex;
@@ -82,6 +108,22 @@
             display: block;
             font-size: 24px;
             color: var(--primary);
+        }
+        .click-feedback {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+        }
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
         }
     </style>
 </head>
@@ -116,15 +158,43 @@
         </div>
         
         <a href="https://p78t.com/l/9ayUPlRN" class="btn" id="entryBtn">
-           Enter Now →
+            <span class="btn-text">Enter Now →</span>
         </a>
     </div>
 
-    <!-- 直接跳转无确认 -->
     <script>
         document.getElementById('entryBtn').addEventListener('click', function(e) {
+            // 创建点击反馈效果
+            const btn = e.currentTarget;
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const feedback = document.createElement('span');
+            feedback.className = 'click-feedback';
+            feedback.style.left = x + 'px';
+            feedback.style.top = y + 'px';
+            btn.appendChild(feedback);
+            
+            // 添加加载状态
+            btn.classList.add('loading');
+            
             // 可在此添加追踪代码
             // analytics.track('Adult Content Access');
+            
+            // 如果跳转延迟，可以显示提示信息
+            setTimeout(() => {
+                // 如果页面还没有跳转，显示提示
+                if (window.location.href.indexOf('p78t.com') === -1) {
+                    // 可以在这里添加一个提示，说明正在跳转
+                    console.log('Redirecting...');
+                }
+            }, 1500);
+            
+            // 移除反馈元素
+            setTimeout(() => {
+                feedback.remove();
+            }, 600);
         });
     </script>
 </body>
