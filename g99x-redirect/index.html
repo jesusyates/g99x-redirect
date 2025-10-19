@@ -2,24 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Global Social Connect - Adults Only</title>
+    <title>SocialCircle - Connect with Interesting People Nearby</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta property="og:title" content="SocialCircle - Meet New Friends in Your Area">
+    <meta property="og:description" content="Join our vibrant community to connect with interesting people nearby. Verified profiles, safe environment.">
+    <meta property="og:image" content="social-preview.jpg">
+    <meta property="og:url" content=".">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SocialCircle - Connect Locally">
+    <meta name="twitter:description" content="Find interesting people in your neighborhood">
+    <meta name="twitter:image" content="social-preview.jpg">
     <style>
         :root {
-            --primary: #4361ee;
-            --accent: #f72585;
-            --text: #2b2d42;
-            --bg: #f8f9fa;
-            --card: #ffffff;
+            --primary: #6C63FF;
+            --secondary: #FF6584;
+            --accent: #36D1DC;
+            --text: #2D3748;
+            --light-text: #718096;
+            --bg: #F7FAFC;
+            --card: #FFFFFF;
+            --shadow: 0 10px 25px rgba(0,0,0,0.05);
         }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
         }
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: var(--text);
             min-height: 100vh;
             padding: 20px;
@@ -27,88 +41,203 @@
             justify-content: center;
             align-items: center;
         }
+        
+        .container {
+            width: 100%;
+            max-width: 420px;
+            margin: 0 auto;
+        }
+        
         .card {
             background: var(--card);
-            width: 100%;
-            max-width: 400px;
-            border-radius: 20px;
+            border-radius: 24px;
             padding: 30px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow);
             text-align: center;
+            overflow: hidden;
+            position: relative;
         }
-        /* 超大18禁图标 */
-        .adults-only {
-            font-size: 80px;
-            line-height: 1;
-            margin: 0 auto 20px;
-            animation: pulse 1.5s infinite;
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
             display: inline-block;
         }
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-        .warning-text {
-            color: #f72585;
-            font-weight: bold;
+        
+        .tagline {
+            color: var(--light-text);
             margin-bottom: 25px;
+            font-size: 16px;
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 180px;
+            border-radius: 16px;
+            margin: 20px 0;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            overflow: hidden;
+            position: relative;
         }
+        
+        .hero-image::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.2)"/></svg>');
+            background-size: cover;
+        }
+        
+        .hero-content {
+            z-index: 2;
+            text-align: center;
+            color: var(--text);
+        }
+        
+        .hero-content h2 {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+        
+        .hero-content p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        .features {
+            display: flex;
+            justify-content: space-between;
+            margin: 25px 0;
+        }
+        
+        .feature {
+            flex: 1;
+            padding: 0 10px;
+        }
+        
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(108, 99, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            color: var(--primary);
+            font-size: 20px;
+        }
+        
+        .feature-title {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .feature-desc {
+            font-size: 12px;
+            color: var(--light-text);
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+            padding: 20px 0;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat strong {
+            display: block;
+            font-size: 24px;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .stat span {
+            font-size: 13px;
+            color: var(--light-text);
+        }
+        
         .btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white !important;
-            padding: 16px;
-            border-radius: 12px;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 18px;
+            border-radius: 14px;
             text-decoration: none;
             font-weight: 600;
-            margin: 25px 0;
+            margin: 25px 0 15px;
             border: none;
             width: 100%;
             transition: all 0.3s;
             position: relative;
             overflow: hidden;
+            font-size: 16px;
+            box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
         }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(108, 99, 255, 0.4);
+        }
+        
         .btn:active {
-            transform: scale(0.98);
+            transform: translateY(0);
         }
+        
         .btn.loading {
             pointer-events: none;
-            opacity: 0.8;
+            opacity: 0.9;
         }
+        
         .btn.loading .btn-text {
             opacity: 0;
         }
+        
         .btn.loading::after {
             content: "";
             position: absolute;
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
             border: 2px solid transparent;
             border-top: 2px solid white;
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
+        
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-        .stats {
-            display: flex;
-            justify-content: space-around;
-            margin: 30px 0;
-        }
-        .stat strong {
-            display: block;
-            font-size: 24px;
-            color: var(--primary);
-        }
+        
         .click-feedback {
             position: absolute;
             width: 20px;
@@ -119,47 +248,125 @@
             animation: ripple 0.6s linear;
             pointer-events: none;
         }
+        
         @keyframes ripple {
             to {
                 transform: scale(4);
                 opacity: 0;
             }
         }
+        
+        .security {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 13px;
+            color: var(--light-text);
+            margin-top: 15px;
+        }
+        
+        .security svg {
+            width: 16px;
+            height: 16px;
+            fill: #48BB78;
+        }
+        
+        .testimonials {
+            margin: 25px 0 15px;
+            padding: 20px;
+            background: rgba(108, 99, 255, 0.05);
+            border-radius: 16px;
+        }
+        
+        .testimonial {
+            font-style: italic;
+            font-size: 14px;
+            color: var(--text);
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        
+        .testimonial-author {
+            font-size: 13px;
+            color: var(--light-text);
+            text-align: left;
+            font-weight: 500;
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
     </style>
 </head>
 <body>
-    <div class="card">
-        <!-- 超大18禁emoji -->
-        <div class="adults-only" aria-label="Adults only">🔞</div>
-        
-        <!-- 简洁警告文字 -->
-        <div class="warning-text">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="#f72585">
-                <path d="M12 2L1 21h22L12 2zm0 4l7.53 13H4.47L12 6z"/>
-            </svg>
-            ADULTS 18+ ONLY
-        </div>
-
-        <h1>Date a beautiful woman in the neighbourhood</h1>
-        
-        <div style="margin: 30px 0;"></div>
-        
-        <p class="subtitle">Join 320,000+ verified users worldwide</p>
-        
-        <div class="stats">
-            <div class="stat">
-                <strong>15K+</strong>
-                <span>Daily Connections</span>
+    <div class="container">
+        <div class="card">
+            <div class="logo">SocialCircle</div>
+            <p class="tagline">Meet interesting people in your neighborhood</p>
+            
+            <div class="hero-image">
+                <div class="hero-content">
+                    <h2>Find Your Community</h2>
+                    <p>Connect with people who share your interests</p>
+                </div>
             </div>
-            <div class="stat">
-                <strong>92%</strong>
-                <span>Positive Feedback</span>
+            
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">👥</div>
+                    <div class="feature-title">Local Matching</div>
+                    <div class="feature-desc">Find people nearby</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">✅</div>
+                    <div class="feature-title">Verified Profiles</div>
+                    <div class="feature-desc">Real people, real connections</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔒</div>
+                    <div class="feature-title">Safe & Secure</div>
+                    <div class="feature-desc">Your privacy matters</div>
+                </div>
+            </div>
+            
+            <div class="stats">
+                <div class="stat">
+                    <strong>320K+</strong>
+                    <span>Members</span>
+                </div>
+                <div class="stat">
+                    <strong>15K+</strong>
+                    <span>Daily Connections</span>
+                </div>
+                <div class="stat">
+                    <strong>92%</strong>
+                    <span>Positive Feedback</span>
+                </div>
+            </div>
+            
+            <div class="testimonials">
+                <p class="testimonial">"I've met so many amazing people in my area through SocialCircle. It's changed my social life completely!"</p>
+                <p class="testimonial-author">- Sarah, New York</p>
+            </div>
+            
+            <a href="https://p78t.com/l/9ayUPlRN" class="btn pulse" id="entryBtn">
+                <span class="btn-text">Join Now - It's Free!</span>
+            </a>
+            
+            <div class="security">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.6 14.8,10V11.5C15.4,11.5 16,12.1 16,12.7V16.5C16,17.1 15.4,17.7 14.8,17.7H9.2C8.6,17.7 8,17.1 8,16.5V12.6C8,12 8.6,11.4 9.2,11.4V10C9.2,8.6 10.6,7 12,7M12,8.2C11.2,8.2 10.5,8.7 10.5,9.5V11.5H13.5V9.5C13.5,8.7 12.8,8.2 12,8.2Z"/>
+                </svg>
+                Secure & Private • Verified Members Only
             </div>
         </div>
-        
-        <a href="https://p78t.com/l/9ayUPlRN" class="btn" id="entryBtn">
-            <span class="btn-text">Enter Now →</span>
-        </a>
     </div>
 
     <script>
@@ -178,18 +385,10 @@
             
             // 添加加载状态
             btn.classList.add('loading');
+            btn.classList.remove('pulse');
             
             // 可在此添加追踪代码
-            // analytics.track('Adult Content Access');
-            
-            // 如果跳转延迟，可以显示提示信息
-            setTimeout(() => {
-                // 如果页面还没有跳转，显示提示
-                if (window.location.href.indexOf('p78t.com') === -1) {
-                    // 可以在这里添加一个提示，说明正在跳转
-                    console.log('Redirecting...');
-                }
-            }, 1500);
+            // analytics.track('Join Button Clicked');
             
             // 移除反馈元素
             setTimeout(() => {
