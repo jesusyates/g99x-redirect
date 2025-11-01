@@ -2,24 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>👉CLICK HERE TO CONNECT🔥</title>
+    <title>👇 CLICK HERE TO CONNECT ON METACHAT 🔥</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <!-- 合规的meta标签 -->
-    <meta property="og:title" content="ConnectMe - Premium Dating App">
-    <meta property="og:description" content="Download ConnectMe - the modern dating app for meaningful connections. Verified profiles, safe environment.">
+    <!-- 优化的meta标签 - 更吸引点击 -->
+    <meta property="og:title" content="👇 CLICK HERE TO CONNECT ON METACHAT 🔥">
+    <meta property="og:description" content="Swipe up to join Metachat - Meet real people nearby now!">
     <meta property="og:image" content="/images/social-preview.jpg">
     <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="675">
+    <meta property="og:image:height" content="630"> <!-- 改为推荐尺寸 -->
     <meta property="og:url" content="/">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="ConnectMe">
+    <meta property="og:site_name" content="Metachat">
     
-    <meta name="description" content="Download ConnectMe - the modern dating app for meaningful connections. Verified profiles, safe environment.">
+    <meta name="description" content="Swipe up to join Metachat - Meet real people nearby now!">
     
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ConnectMe - Premium Dating App">
-    <meta name="twitter:description" content="Find meaningful connections with verified profiles">
+    <meta name="twitter:title" content="👇 CLICK HERE TO CONNECT ON METACHAT 🔥">
+    <meta name="twitter:description" content="Swipe up to join Metachat - Meet real people nearby now!">
     <meta name="twitter:image" content="/images/social-preview.jpg">
     
     <style>
@@ -65,6 +65,7 @@
             text-align: center;
             overflow: hidden;
             position: relative;
+            cursor: pointer; /* 让整个卡片感觉可点击 */
         }
         
         .card::before {
@@ -75,6 +76,19 @@
             right: 0;
             height: 6px;
             background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+        
+        /* 新增：点击引导动画 */
+        .click-guide {
+            animation: bounce 2s infinite;
+            color: var(--secondary);
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
         }
         
         .app-header {
@@ -97,6 +111,7 @@
             font-size: 32px;
             font-weight: bold;
             box-shadow: 0 8px 20px rgba(108, 99, 255, 0.3);
+            animation: pulse 2s infinite; /* 图标也添加动画 */
         }
         
         .app-info {
@@ -114,9 +129,10 @@
         }
         
         .app-category {
-            color: var(--light-text);
+            color: var(--secondary); /* 改为更醒目的颜色 */
             font-size: 14px;
             margin-bottom: 8px;
+            font-weight: 600;
         }
         
         .app-rating {
@@ -336,20 +352,23 @@
 </head>
 <body>
     <div class="container">
-        <div class="card">
+        <div class="card" onclick="document.getElementById('entryBtn').click()">
+            <!-- 新增：明确的点击引导 -->
+            <div class="click-guide">👇 SWIPE UP TO CONNECT 👆</div>
+            
             <div class="app-header">
                 <div class="app-icon">MC</div>
                 <div class="app-info">
                     <div class="app-name">Metachat</div>
-                    <div class="app-category">Dating & Social</div>
+                    <div class="app-category">⬤ LIVE - Tap to Join Dating App</div>
                     <div class="app-rating">
                         <span class="stars">★★★★★</span>
-                        <span>4.8 • 100K+</span>
+                        <span>4.8 • 100K+ Online Now</span>
                     </div>
                 </div>
             </div>
             
-            <p class="tagline">Verified dating for genuine connections.</p>
+            <p class="tagline"><strong>CLICK BUTTON BELOW ↓ to meet real people nearby</strong></p>
             
             <!-- 随机图片展示 -->
             <div class="random-images" id="randomImagesContainer">
@@ -372,7 +391,7 @@
             </div>
             
             <a href="https://p78t.com/l/9ayUPlRN" class="btn pulse" id="entryBtn">
-                <span class="btn-text">Start Chatting Now</span>
+                <span class="btn-text">🚀 CLICK TO START DATING NOW</span>
             </a>
             
             <div class="store-badges">
@@ -413,12 +432,12 @@
                 const img = document.createElement('img');
                 img.className = 'random-image';
                 img.src = `images/${index}.jpg`;
-                img.alt = `ConnectMe user ${index}`;
+                img.alt = `Metachat user ${index}`;
                 img.loading = 'lazy'; // 延迟加载优化性能
+                img.style.cursor = 'pointer'; // 图片也显示可点击
                 
                 // 添加加载错误处理
                 img.onerror = function() {
-                    // 如果图片加载失败，使用占位符
                     this.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 150 150"><rect width="150" height="150" fill="%23f0f0f0"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="14" fill="%23999">User Photo</text></svg>';
                 };
                 
@@ -456,6 +475,11 @@
                     feedback.remove();
                 }, 600);
             });
+            
+            // 点击卡片任意位置也能触发链接
+            document.querySelector('.card').addEventListener('click', function() {
+                document.getElementById('entryBtn').click();
+            });
         });
 
         // 可选：添加键盘快捷键支持（按R键刷新图片）
@@ -467,7 +491,3 @@
     </script>
 </body>
 </html>
-
-
-
-
