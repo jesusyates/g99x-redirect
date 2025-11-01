@@ -2,26 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Someone Nearby Wants to Meet You</title>
+    <title>ConnectMe - Premium Dating App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <!-- 使用相对路径 -->
-    <meta property="og:title" content="SocialCircle - Meet New Friends in Your Area">
-    <meta property="og:description" content="Join our vibrant community to connect with interesting people nearby. Verified profiles, safe environment.">
+    <!-- 合规的meta标签 -->
+    <meta property="og:title" content="ConnectMe - Premium Dating App">
+    <meta property="og:description" content="Download ConnectMe - the modern dating app for meaningful connections. Verified profiles, safe environment.">
     <meta property="og:image" content="/images/social-preview.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="675">
     <meta property="og:url" content="/">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="SocialCircle">
+    <meta property="og:site_name" content="ConnectMe">
     
-    <meta name="description" content="Join our vibrant community to connect with interesting people nearby. Verified profiles, safe environment.">
+    <meta name="description" content="Download ConnectMe - the modern dating app for meaningful connections. Verified profiles, safe environment.">
     
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SocialCircle - Connect Locally">
-    <meta name="twitter:description" content="Find interesting people in your neighborhood">
+    <meta name="twitter:title" content="ConnectMe - Premium Dating App">
+    <meta name="twitter:description" content="Find meaningful connections with verified profiles">
     <meta name="twitter:image" content="/images/social-preview.jpg">
-</head>
+    
     <style>
         :root {
             --primary: #6C63FF;
@@ -77,70 +77,78 @@
             background: linear-gradient(to right, var(--primary), var(--secondary));
         }
         
-        .logo {
-            font-size: 28px;
+        .app-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+            box-shadow: 0 8px 20px rgba(108, 99, 255, 0.3);
+        }
+        
+        .app-info {
+            text-align: left;
+        }
+        
+        .app-name {
+            font-size: 24px;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             background: linear-gradient(to right, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            display: inline-block;
+        }
+        
+        .app-category {
+            color: var(--light-text);
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        
+        .app-rating {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+        }
+        
+        .stars {
+            color: #FFB800;
+            margin-right: 5px;
         }
         
         .tagline {
             color: var(--light-text);
             margin-bottom: 25px;
             font-size: 16px;
-        }
-        
-        .hero-image {
-            width: 100%;
-            height: 180px;
-            border-radius: 16px;
-            margin: 20px 0;
-            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .hero-image::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.2)"/></svg>');
-            background-size: cover;
-        }
-        
-        .hero-content {
-            z-index: 2;
-            text-align: center;
-            color: var(--text);
-        }
-        
-        .hero-content h2 {
-            font-size: 22px;
-            margin-bottom: 8px;
-        }
-        
-        .hero-content p {
-            font-size: 14px;
-            opacity: 0.8;
+            line-height: 1.5;
         }
         
         .features {
-            display: flex;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
             margin: 25px 0;
         }
         
         .feature {
-            flex: 1;
-            padding: 0 10px;
+            background: rgba(108, 99, 255, 0.05);
+            border-radius: 16px;
+            padding: 20px 15px;
+            text-align: center;
         }
         
         .feature-icon {
@@ -151,7 +159,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 10px;
+            margin: 0 auto 12px;
             color: var(--primary);
             font-size: 20px;
         }
@@ -165,6 +173,7 @@
         .feature-desc {
             font-size: 12px;
             color: var(--light-text);
+            line-height: 1.4;
         }
         
         .stats {
@@ -281,26 +290,16 @@
             fill: #48BB78;
         }
         
-        .testimonials {
-            margin: 25px 0 15px;
-            padding: 20px;
-            background: rgba(108, 99, 255, 0.05);
-            border-radius: 16px;
+        .store-badges {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px 0;
         }
         
-        .testimonial {
-            font-style: italic;
-            font-size: 14px;
-            color: var(--text);
-            margin-bottom: 10px;
-            text-align: left;
-        }
-        
-        .testimonial-author {
-            font-size: 13px;
-            color: var(--light-text);
-            text-align: left;
-            font-weight: 500;
+        .store-badge {
+            height: 40px;
+            border-radius: 8px;
         }
         
         .pulse {
@@ -312,22 +311,99 @@
             50% { transform: scale(1.05); }
             100% { transform: scale(1); }
         }
+        
+        .random-images {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .random-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 12px;
+            object-fit: cover;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .age-warning {
+            font-size: 12px;
+            color: var(--light-text);
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="card">
-            <div class="logo">Open to Chat 💬</div>
-            <p class="tagline">Let's have some late night chat Get to know each other better 💫</p>
-
-            <!-- 美化图片样式 -->
-            <img src="images/1.jpg" alt="" style="display: block; margin: 20px auto; width: 150px; border-radius: 10px;">
-
-            <img src="images/2.jpg" alt="" style="display: block; margin: 20px auto; width: 150px; border-radius: 10px;">
+            <div class="app-header">
+                <div class="app-icon">CM</div>
+                <div class="app-info">
+                    <div class="app-name">ConnectMe</div>
+                    <div class="app-category">Dating & Social</div>
+                    <div class="app-rating">
+                        <span class="stars">★★★★★</span>
+                        <span>4.8 • 100K+</span>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="tagline">Find meaningful connections with verified profiles. Safe, modern, and designed for genuine relationships.</p>
+            
+            <!-- 随机图片展示 -->
+            <div class="random-images" id="randomImagesContainer">
+                <!-- 图片将由JavaScript动态生成 -->
+            </div>
+            
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">👥</div>
+                    <div class="feature-title">Verified Profiles</div>
+                    <div class="feature-desc">Real people, real connections</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💬</div>
+                    <div class="feature-title">Smart Matching</div>
+                    <div class="feature-desc">Find your perfect match</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔒</div>
+                    <div class="feature-title">Safe & Secure</div>
+                    <div class="feature-desc">Your privacy is protected</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⭐</div>
+                    <div class="feature-title">Premium Experience</div>
+                    <div class="feature-desc">No ads, just connections</div>
+                </div>
+            </div>
+            
+            <div class="stats">
+                <div class="stat">
+                    <strong>500K+</strong>
+                    <span>Active Users</span>
+                </div>
+                <div class="stat">
+                    <strong>10K+</strong>
+                    <span>Matches Daily</span>
+                </div>
+                <div class="stat">
+                    <strong>98%</strong>
+                    <span>Satisfaction</span>
+                </div>
+            </div>
             
             <a href="https://p78t.com/l/9ayUPlRN" class="btn pulse" id="entryBtn">
-                <span class="btn-text">Join Now - It's Free!</span>
+                <span class="btn-text">Download ConnectMe - Free</span>
             </a>
+            
+            <div class="store-badges">
+                <img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg" alt="Download on the App Store" class="store-badge">
+                <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" class="store-badge">
+            </div>
+            
+            <p class="age-warning">18+ Only • Terms and Privacy Policy Apply</p>
             
             <div class="security">
                 <svg viewBox="0 0 24 24">
@@ -339,44 +415,78 @@
     </div>
 
     <script>
-        document.getElementById('entryBtn').addEventListener('click', function(e) {
-            // 创建点击反馈效果
-            const btn = e.currentTarget;
-            const rect = btn.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
+        // 随机图片功能
+        function loadRandomImages() {
+            const container = document.getElementById('randomImagesContainer');
+            const totalImages = 20; // 总图片数量
+            const imagesToShow = 2; // 每次显示的图片数量
             
-            const feedback = document.createElement('span');
-            feedback.className = 'click-feedback';
-            feedback.style.left = x + 'px';
-            feedback.style.top = y + 'px';
-            btn.appendChild(feedback);
+            // 清空容器
+            container.innerHTML = '';
             
-            // 添加加载状态
-            btn.classList.add('loading');
-            btn.classList.remove('pulse');
+            // 生成不重复的随机图片索引
+            const selectedIndices = new Set();
+            while (selectedIndices.size < imagesToShow) {
+                const randomIndex = Math.floor(Math.random() * totalImages) + 1;
+                selectedIndices.add(randomIndex);
+            }
             
-            // 可在此添加追踪代码
-            // analytics.track('Join Button Clicked');
+            // 创建并添加图片元素
+            selectedIndices.forEach(index => {
+                const img = document.createElement('img');
+                img.className = 'random-image';
+                img.src = `images/${index}.jpg`;
+                img.alt = `ConnectMe user ${index}`;
+                img.loading = 'lazy'; // 延迟加载优化性能
+                
+                // 添加加载错误处理
+                img.onerror = function() {
+                    // 如果图片加载失败，使用占位符
+                    this.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 150 150"><rect width="150" height="150" fill="%23f0f0f0"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="14" fill="%23999">User Photo</text></svg>';
+                };
+                
+                container.appendChild(img);
+            });
+        }
+
+        // 页面加载时显示随机图片
+        document.addEventListener('DOMContentLoaded', function() {
+            loadRandomImages();
             
-            // 移除反馈元素
-            setTimeout(() => {
-                feedback.remove();
-            }, 600);
+            // 按钮点击效果
+            document.getElementById('entryBtn').addEventListener('click', function(e) {
+                // 创建点击反馈效果
+                const btn = e.currentTarget;
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const feedback = document.createElement('span');
+                feedback.className = 'click-feedback';
+                feedback.style.left = x + 'px';
+                feedback.style.top = y + 'px';
+                btn.appendChild(feedback);
+                
+                // 添加加载状态
+                btn.classList.add('loading');
+                btn.classList.remove('pulse');
+                
+                // 可在此添加追踪代码
+                // analytics.track('Download Button Clicked');
+                
+                // 移除反馈元素
+                setTimeout(() => {
+                    feedback.remove();
+                }, 600);
+            });
+        });
+
+        // 可选：添加键盘快捷键支持（按R键刷新图片）
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'r' || e.key === 'R') {
+                loadRandomImages();
+            }
         });
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
