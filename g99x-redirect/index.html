@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Join Metachat - Social Dating App</title>
+    <title>Metachat - Meet New People</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <!-- 合规的meta标签 -->
-    <meta property="og:title" content="Join Metachat - Social Dating App">
-    <meta property="og:description" content="Download Metachat to meet new people and make meaningful connections">
+    <!-- 优化的meta标签 -->
+    <meta property="og:title" content="Metachat - Meet New People">
+    <meta property="og:description" content="Join Metachat to connect with interesting people">
     <meta property="og:image" content="/images/social-preview.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -15,11 +15,11 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Metachat">
     
-    <meta name="description" content="Download Metachat to meet new people and make meaningful connections">
+    <meta name="description" content="Join Metachat to connect with interesting people">
     
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Join Metachat - Social Dating App">
-    <meta name="twitter:description" content="Download Metachat to meet new people and make meaningful connections">
+    <meta name="twitter:title" content="Metachat - Meet New People">
+    <meta name="twitter:description" content="Join Metachat to connect with interesting people">
     <meta name="twitter:image" content="/images/social-preview.jpg">
     
     <style>
@@ -31,217 +31,171 @@
         }
         
         body {
-            background: #f8f9fa;
-            color: #2D3748;
+            background: linear-gradient(135deg, #6C63FF 0%, #FF6584 100%);
+            color: #FFFFFF;
             min-height: 100vh;
-            padding: 20px;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
+            padding: 20px;
         }
         
         .container {
             width: 100%;
-            max-width: 400px;
-            margin: 0 auto;
-        }
-        
-        .card {
-            background: #FFFFFF;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            max-width: 500px;
             text-align: center;
         }
         
-        .app-header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 25px;
-        }
-        
-        .app-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: 18px;
-            background: linear-gradient(135deg, #6C63FF, #FF6584);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
-        }
-        
-        .app-info {
-            text-align: left;
-        }
-        
-        .app-name {
-            font-size: 22px;
+        .logo {
+            font-size: 32px;
             font-weight: 700;
-            margin-bottom: 5px;
-            color: #2D3748;
-        }
-        
-        .app-category {
-            color: #718096;
-            font-size: 14px;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
         
         .tagline {
-            color: #718096;
-            margin-bottom: 25px;
-            font-size: 16px;
-            line-height: 1.5;
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            line-height: 1.4;
         }
         
-        .random-images {
+        .image-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin: 25px 0;
+            gap: 15px;
+            margin-bottom: 30px;
         }
         
         .random-image {
             width: 100%;
-            height: 160px;
+            aspect-ratio: 1;
             border-radius: 12px;
             object-fit: cover;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
         }
         
-        .features {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin: 25px 0;
-        }
-        
-        .feature {
-            background: rgba(108, 99, 255, 0.05);
-            border-radius: 12px;
-            padding: 15px 10px;
-            text-align: center;
-        }
-        
-        .feature-icon {
-            font-size: 20px;
-            margin-bottom: 8px;
-        }
-        
-        .feature-title {
-            font-weight: 600;
-            font-size: 13px;
-            color: #2D3748;
+        .random-image:hover {
+            transform: scale(1.03);
         }
         
         .btn {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #6C63FF, #FF6584);
-            color: white;
-            padding: 16px;
-            border-radius: 12px;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #6C63FF;
+            padding: 18px 30px;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            margin: 20px 0 15px;
+            font-size: 18px;
+            margin: 20px 0;
             border: none;
             width: 100%;
+            max-width: 300px;
             transition: all 0.3s;
-            font-size: 16px;
-            box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            backdrop-filter: blur(10px);
         }
         
         .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(108, 99, 255, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+            background: rgba(255, 255, 255, 1);
         }
         
         .btn:active {
             transform: translateY(0);
         }
         
-        .age-warning {
-            font-size: 12px;
-            color: #718096;
-            margin-top: 15px;
+        .btn.loading {
+            pointer-events: none;
+            opacity: 0.8;
         }
         
-        .security {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            font-size: 13px;
-            color: #718096;
+        .btn.loading .btn-text {
+            opacity: 0;
+        }
+        
+        .btn.loading::after {
+            content: "";
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            border: 2px solid transparent;
+            border-top: 2px solid #6C63FF;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .click-feedback {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: rgba(108, 99, 255, 0.3);
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+        }
+        
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+        
+        .info-text {
+            font-size: 14px;
+            opacity: 0.7;
             margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(0,0,0,0.05);
+            line-height: 1.5;
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="card">
-            <div class="app-header">
-                <div class="app-icon">MC</div>
-                <div class="app-info">
-                    <div class="app-name">Metachat</div>
-                    <div class="app-category">Social Dating App</div>
-                </div>
-            </div>
-            
-            <p class="tagline">Meet new people and make meaningful connections in your area</p>
-            
-            <!-- 随机图片展示 - 4张图片 -->
-            <div class="random-images" id="randomImagesContainer">
-                <!-- 图片将由JavaScript动态生成 -->
-            </div>
-            
-            <div class="features">
-                <div class="feature">
-                    <div class="feature-icon">👥</div>
-                    <div class="feature-title">Real People</div>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">💬</div>
-                    <div class="feature-title">Live Chat</div>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🔒</div>
-                    <div class="feature-title">Safe & Secure</div>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">⭐</div>
-                    <div class="feature-title">4.8 Rating</div>
-                </div>
-            </div>
-            
-            <a href="https://p78t.com/l/9ayUPlRN" class="btn" id="downloadBtn">
-                Download Metachat - Free
-            </a>
-            
-            <p class="age-warning">18+ Only • Terms and Privacy Policy Apply</p>
-            
-            <div class="security">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="#718096">
-                    <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.6 14.8,10V11.5C15.4,11.5 16,12.1 16,12.7V16.5C16,17.1 15.4,17.7 14.8,17.7H9.2C8.6,17.7 8,17.1 8,16.5V12.6C8,12 8.6,11.4 9.2,11.4V10C9.2,8.6 10.6,7 12,7M12,8.2C11.2,8.2 10.5,8.7 10.5,9.5V11.5H13.5V9.5C13.5,8.7 12.8,8.2 12,8.2Z"/>
-                </svg>
-                Secure & Private • Verified Members
-            </div>
+        <div class="logo">Metachat</div>
+        <p class="tagline">Meet interesting people and make new connections</p>
+        
+        <!-- 随机图片展示 -->
+        <div class="image-grid" id="imageGrid">
+            <!-- 图片将由JavaScript动态生成 -->
         </div>
+        
+        <a href="https://p78t.com/l/9ayUPlRN" class="btn pulse" id="downloadBtn">
+            <span class="btn-text">Download App</span>
+        </a>
+        
+        <p class="info-text">Join thousands of users worldwide • 18+ only</p>
     </div>
 
     <script>
-        // 随机图片功能 - 显示4张图片
+        // 随机图片功能
         function loadRandomImages() {
-            const container = document.getElementById('randomImagesContainer');
+            const container = document.getElementById('imageGrid');
             const totalImages = 20; // 总图片数量
-            const imagesToShow = 4; // 每次显示4张图片
+            const imagesToShow = 4; // 每次显示的图片数量
             
             // 清空容器
             container.innerHTML = '';
@@ -258,12 +212,13 @@
                 const img = document.createElement('img');
                 img.className = 'random-image';
                 img.src = `images/${index}.jpg`;
-                img.alt = `Metachat user`;
-                img.loading = 'lazy';
+                img.alt = `User photo ${index}`;
+                img.loading = 'lazy'; // 延迟加载优化性能
                 
                 // 添加加载错误处理
                 img.onerror = function() {
-                    this.style.display = 'none';
+                    // 如果图片加载失败，使用占位图
+                    this.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><rect width="200" height="200" fill="%23f0f0f0"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="14" fill="%23999">Photo</text></svg>';
                 };
                 
                 container.appendChild(img);
@@ -276,17 +231,30 @@
             
             // 按钮点击效果
             document.getElementById('downloadBtn').addEventListener('click', function(e) {
+                // 创建点击反馈效果
                 const btn = e.currentTarget;
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
                 
-                // 添加简单的点击反馈
-                btn.style.transform = 'scale(0.98)';
+                const feedback = document.createElement('span');
+                feedback.className = 'click-feedback';
+                feedback.style.left = x + 'px';
+                feedback.style.top = y + 'px';
+                btn.appendChild(feedback);
+                
+                // 添加加载状态
+                btn.classList.add('loading');
+                btn.classList.remove('pulse');
+                
+                // 移除反馈元素
                 setTimeout(() => {
-                    btn.style.transform = '';
-                }, 150);
+                    feedback.remove();
+                }, 600);
             });
         });
 
-        // 可选：按R键刷新图片
+        // 可选：添加键盘快捷键支持（按R键刷新图片）
         document.addEventListener('keydown', function(e) {
             if (e.key === 'r' || e.key === 'R') {
                 loadRandomImages();
