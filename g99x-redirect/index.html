@@ -2,26 +2,84 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>👇 Click Here to Connect on Metachat 🔥</title>
+    <title>Metachat - Connect with New People</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <!-- 优化的meta标签 - 更吸引点击 -->
-    <meta property="og:title" content="👇 Click Here to Connect on Metachat 🔥">
-    <meta property="og:description" content="Swipe up to join Metachat - Meet real people nearby now!">
+    <!-- 优化的meta标签 - 更合规透明 -->
+    <meta property="og:title" content="Metachat - Connect with New People">
+    <meta property="og:description" content="Join Metachat to meet interesting people and build meaningful connections.">
     <meta property="og:image" content="/images/social-preview.jpg">
     <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630"> <!-- 改为推荐尺寸 -->
+    <meta property="og:image:height" content="630">
     <meta property="og:url" content="/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Metachat">
     
-    <meta name="description" content="Swipe up to join Metachat - Meet real people nearby now!">
+    <meta name="description" content="Join Metachat to meet interesting people and build meaningful connections.">
     
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="👇 Click Here to Connect on Metachat 🔥">
-    <meta name="twitter:description" content="Swipe up to join Metachat - Meet real people nearby now!">
+    <meta name="twitter:title" content="Metachat - Connect with New People">
+    <meta name="twitter:description" content="Join Metachat to meet interesting people and build meaningful connections.">
     <meta name="twitter:image" content="/images/social-preview.jpg">
-    
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="app-header">
+                <div class="app-icon">MC</div>
+                <div class="app-info">
+                    <div class="app-name">Metachat</div>
+                    <div class="app-category">Social & Dating App</div>
+                    <div class="app-rating">
+                        <span class="stars">★★★★★</span>
+                        <span>4.8 • 100K+ Downloads</span>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="tagline">Meet interesting people and build meaningful connections</p>
+            
+            <!-- 随机图片展示 -->
+            <div class="random-images" id="randomImagesContainer">
+                <!-- 图片将由JavaScript动态生成 -->
+            </div>
+            
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">👥</div>
+                    <div class="feature-title">Real People</div>
+                    <div class="feature-desc">Verified profiles only</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💬</div>
+                    <div class="feature-title">Easy Chat</div>
+                    <div class="feature-desc">Connect instantly</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔒</div>
+                    <div class="feature-title">Safe & Secure</div>
+                    <div class="feature-desc">Privacy protected</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⭐</div>
+                    <div class="feature-title">Top Rated</div>
+                    <div class="feature-desc">4.8/5 stars</div>
+                </div>
+            </div>
+            
+            <a href="https://p78t.com/l/9ayUPlRN" class="btn pulse" id="entryBtn">
+                <span class="btn-text">Download Metachat</span>
+            </a>
+            
+            <div class="security">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.6 14.8,10V11.5C15.4,11.5 16,12.1 16,12.7V16.5C16,17.1 15.4,17.7 14.8,17.7H9.2C8.6,17.7 8,17.1 8,16.5V12.6C8,12 8.6,11.4 9.2,11.4V10C9.2,8.6 10.6,7 12,7M12,8.2C11.2,8.2 10.5,8.7 10.5,9.5V11.5H13.5V9.5C13.5,8.7 12.8,8.2 12,8.2Z"/>
+                </svg>
+                18+ Only • Privacy Protected • Terms Apply
+            </div>
+        </div>
+    </div>
+
     <style>
         :root {
             --primary: #6C63FF;
@@ -65,7 +123,6 @@
             text-align: center;
             overflow: hidden;
             position: relative;
-            cursor: pointer; /* 让整个卡片感觉可点击 */
         }
         
         .card::before {
@@ -76,19 +133,6 @@
             right: 0;
             height: 6px;
             background: linear-gradient(to right, var(--primary), var(--secondary));
-        }
-        
-        /* 新增：点击引导动画 */
-        .click-guide {
-            animation: bounce 2s infinite;
-            color: var(--secondary);
-            font-weight: 800;
-            margin-bottom: 15px;
-        }
-        
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
         }
         
         .app-header {
@@ -111,7 +155,6 @@
             font-size: 32px;
             font-weight: bold;
             box-shadow: 0 8px 20px rgba(108, 99, 255, 0.3);
-            animation: pulse 2s infinite; /* 图标也添加动画 */
         }
         
         .app-info {
@@ -129,7 +172,7 @@
         }
         
         .app-category {
-            color: var(--secondary); /* 改为更醒目的颜色 */
+            color: var(--secondary);
             font-size: 14px;
             margin-bottom: 8px;
             font-weight: 600;
@@ -190,31 +233,6 @@
             font-size: 12px;
             color: var(--light-text);
             line-height: 1.4;
-        }
-        
-        .stats {
-            display: flex;
-            justify-content: space-around;
-            margin: 30px 0;
-            padding: 20px 0;
-            border-top: 1px solid rgba(0,0,0,0.05);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-        
-        .stat {
-            text-align: center;
-        }
-        
-        .stat strong {
-            display: block;
-            font-size: 24px;
-            color: var(--primary);
-            margin-bottom: 5px;
-        }
-        
-        .stat span {
-            font-size: 13px;
-            color: var(--light-text);
         }
         
         .btn {
@@ -306,18 +324,6 @@
             fill: #48BB78;
         }
         
-        .store-badges {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin: 15px 0;
-        }
-        
-        .store-badge {
-            height: 40px;
-            border-radius: 8px;
-        }
-        
         .pulse {
             animation: pulse 2s infinite;
         }
@@ -329,92 +335,27 @@
         }
         
         .random-images {
-            display: flex;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 15px;
             margin: 20px 0;
         }
         
         .random-image {
-            width: 150px;
+            width: 100%;
             height: 150px;
             border-radius: 12px;
             object-fit: cover;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
-        
-        .age-warning {
-            font-size: 12px;
-            color: var(--light-text);
-            margin-top: 10px;
-        }
     </style>
-</head>
-<body>
-    <div class="container">
-        <div class="card" onclick="document.getElementById('entryBtn').click()">
-            <!-- 新增：明确的点击引导 -->
-            
-            <div class="app-header">
-                <div class="app-icon">MC</div>
-                <div class="app-info">
-                    <div class="app-name">Metachat</div>
-                    <div class="app-category">⬤ LIVE - Tap to Join Dating App</div>
-                    <div class="app-rating">
-                        <span class="stars">★★★★★</span>
-                        <span>4.8 • 100K+ Online Now</span>
-                    </div>
-                </div>
-            </div>
-            
-            <p class="tagline"><strong>I am here</strong></p>
-            
-            <!-- 随机图片展示 -->
-            <div class="random-images" id="randomImagesContainer">
-                <!-- 图片将由JavaScript动态生成 -->
-            </div>
-            
-            <div class="stats">
-                <div class="stat">
-                    <strong>500K+</strong>
-                    <span>Active Users</span>
-                </div>
-                <div class="stat">
-                    <strong>10K+</strong>
-                    <span>Matches Daily</span>
-                </div>
-                <div class="stat">
-                    <strong>98%</strong>
-                    <span>Satisfaction</span>
-                </div>
-            </div>
-            
-            <a href="https://p78t.com/l/9ayUPlRN" class="btn pulse" id="entryBtn">
-                <span class="btn-text">🚀 Click to start dating now </span>
-            </a>
-            
-            <div class="store-badges">
-                <img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg" alt="Download on the App Store" class="store-badge">
-                <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" class="store-badge">
-            </div>
-            
-            <p class="age-warning">18+ Only • Terms and Privacy Policy Apply</p>
-            
-            <div class="security">
-                <svg viewBox="0 0 24 24">
-                    <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.6 14.8,10V11.5C15.4,11.5 16,12.1 16,12.7V16.5C16,17.1 15.4,17.7 14.8,17.7H9.2C8.6,17.7 8,17.1 8,16.5V12.6C8,12 8.6,11.4 9.2,11.4V10C9.2,8.6 10.6,7 12,7M12,8.2C11.2,8.2 10.5,8.7 10.5,9.5V11.5H13.5V9.5C13.5,8.7 12.8,8.2 12,8.2Z"/>
-                </svg>
-                Secure & Private • Verified Members Only
-            </div>
-        </div>
-    </div>
 
     <script>
         // 随机图片功能
         function loadRandomImages() {
             const container = document.getElementById('randomImagesContainer');
             const totalImages = 24; // 总图片数量
-            const imagesToShow = 2; // 每次显示的图片数量
+            const imagesToShow = 4; // 每次显示的图片数量
             
             // 清空容器
             container.innerHTML = '';
@@ -433,7 +374,6 @@
                 img.src = `images/${index}.jpg`;
                 img.alt = `Metachat user ${index}`;
                 img.loading = 'lazy'; // 延迟加载优化性能
-                img.style.cursor = 'pointer'; // 图片也显示可点击
                 
                 // 添加加载错误处理
                 img.onerror = function() {
@@ -466,18 +406,10 @@
                 btn.classList.add('loading');
                 btn.classList.remove('pulse');
                 
-                // 可在此添加追踪代码
-                // analytics.track('Download Button Clicked');
-                
                 // 移除反馈元素
                 setTimeout(() => {
                     feedback.remove();
                 }, 600);
-            });
-            
-            // 点击卡片任意位置也能触发链接
-            document.querySelector('.card').addEventListener('click', function() {
-                document.getElementById('entryBtn').click();
             });
         });
 
@@ -490,9 +422,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
