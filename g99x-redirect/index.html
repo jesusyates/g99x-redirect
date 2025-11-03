@@ -205,7 +205,7 @@
             </a>
             
             <a href="https://t.me/+FMBw5lZaQ0wwYjll" class="btn telegram-btn" id="telegramBtn">
-                <span class="btn-text">Join Telegram Channel</span>
+                <span class="btn-text">My Telegram Channel</span>
             </a>
         </div>
         
@@ -297,6 +297,7 @@
                 
                 // 添加加载状态
                 btn.classList.add('loading');
+                btn.classList.remove('pulse');
                 
                 // 移除反馈元素
                 setTimeout(() => {
@@ -306,6 +307,7 @@
                 // 延迟后恢复按钮状态（模拟跳转完成）
                 setTimeout(() => {
                     btn.classList.remove('loading');
+                    btn.classList.add('pulse');
                 }, 1500);
             });
         });
@@ -319,3 +321,4 @@
     </script>
 </body>
 </html>
+
