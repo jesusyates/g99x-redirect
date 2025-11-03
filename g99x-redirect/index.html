@@ -257,11 +257,6 @@
             const btn = document.getElementById(buttonId);
             
             btn.addEventListener('click', function(e) {
-                // 阻止默认行为，我们手动处理跳转
-                e.preventDefault();
-                
-                const href = this.href;
-                
                 // 创建点击反馈效果
                 const rect = btn.getBoundingClientRect();
                 const x = e.clientX - rect.left;
@@ -284,63 +279,17 @@
                     feedback.remove();
                 }, 600);
                 
-                // 创建隐藏的iframe来检测页面加载
-                const iframe = document.createElement('iframe');
-                iframe.style.display = 'none';
-                iframe.src = href;
-                
-                // 监听iframe加载完成
-                iframe.onload = function() {
-                    // 页面加载完成，恢复按钮状态
-                    btn.classList.remove('loading');
-                    if (buttonId === 'downloadBtn') {
-                        btn.classList.add('pulse');
-                    }
-                    
-                    // 移除iframe
-                    setTimeout(() => {
-                        if (iframe.parentNode) {
-                            iframe.parentNode.removeChild(iframe);
-                        }
-                    }, 1000);
-                    
-                    // 在新标签页打开链接
-                    window.open(href, '_blank');
-                };
-                
-                iframe.onerror = function() {
-                    // 如果加载出错，也恢复按钮状态
-                    btn.classList.remove('loading');
-                    if (buttonId === 'downloadBtn') {
-                        btn.classList.add('pulse');
-                    }
-                    
-                    // 移除iframe
-                    if (iframe.parentNode) {
-                        iframe.parentNode.removeChild(iframe);
-                    }
-                    
-                    // 仍然尝试在新标签页打开链接
-                    window.open(href, '_blank');
-                };
-                
-                // 添加到页面
-                document.body.appendChild(iframe);
-                
-                // 安全超时：如果10秒后仍未加载完成，强制恢复按钮状态
+                // 使用更短的延迟来恢复按钮状态
+                // 因为在新标签页打开链接几乎是瞬间完成的
                 setTimeout(() => {
-                    if (btn.classList.contains('loading')) {
-                        btn.classList.remove('loading');
-                        if (buttonId === 'downloadBtn') {
-                            btn.classList.add('pulse');
-                        }
-                        
-                        // 移除iframe
-                        if (iframe.parentNode) {
-                            iframe.parentNode.removeChild(iframe);
-                        }
+                    btn.classList.remove('loading');
+                    if (buttonId === 'downloadBtn') {
+                        btn.classList.add('pulse');
                     }
-                }, 10000);
+                }, 1500); // 1.5秒后恢复，这个时间足够用户看到加载效果
+                
+                // 允许默认的链接跳转行为继续
+                // 链接会在新标签页打开（因为有 target="_blank"）
             });
         }
 
