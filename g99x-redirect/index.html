@@ -107,6 +107,7 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.15);
             backdrop-filter: blur(10px);
             cursor: pointer;
+            position: relative;
         }
         
         .btn:hover {
@@ -187,6 +188,10 @@
         .telegram-btn:hover {
             background: rgba(0, 136, 204, 1);
         }
+        
+        .telegram-btn.loading::after {
+            border-top: 2px solid white;
+        }
     </style>
 </head>
 <body>
@@ -200,11 +205,11 @@
         </div>
         
         <div class="btn-container">
-            <a href="https://p78t.com/l/9ayUPlRN" class="btn pulse" id="downloadBtn">
+            <a href="https://p78t.com/l/9ayUPlRN" class="btn pulse" id="downloadBtn" target="_blank">
                 <span class="btn-text">Download App</span>
             </a>
             
-            <a href="https://t.me/+FMBw5lZaQ0wwYjll" class="btn telegram-btn" id="telegramBtn">
+            <a href="https://t.me/+FMBw5lZaQ0wwYjll" class="btn telegram-btn" id="telegramBtn" target="_blank">
                 <span class="btn-text">My Telegram Channel</span>
             </a>
         </div>
@@ -247,69 +252,105 @@
             });
         }
 
-        // 页面加载时显示随机图片
+        // 智能按钮点击处理
+        function setupButtonHandler(buttonId) {
+            const btn = document.getElementById(buttonId);
+            
+            btn.addEventListener('click', function(e) {
+                // 阻止默认行为，我们手动处理跳转
+                e.preventDefault();
+                
+                const href = this.href;
+                
+                // 创建点击反馈效果
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const feedback = document.createElement('span');
+                feedback.className = 'click-feedback';
+                feedback.style.left = x + 'px';
+                feedback.style.top = y + 'px';
+                btn.appendChild(feedback);
+                
+                // 添加加载状态
+                btn.classList.add('loading');
+                if (btn.classList.contains('pulse')) {
+                    btn.classList.remove('pulse');
+                }
+                
+                // 移除反馈元素
+                setTimeout(() => {
+                    feedback.remove();
+                }, 600);
+                
+                // 创建隐藏的iframe来检测页面加载
+                const iframe = document.createElement('iframe');
+                iframe.style.display = 'none';
+                iframe.src = href;
+                
+                // 监听iframe加载完成
+                iframe.onload = function() {
+                    // 页面加载完成，恢复按钮状态
+                    btn.classList.remove('loading');
+                    if (buttonId === 'downloadBtn') {
+                        btn.classList.add('pulse');
+                    }
+                    
+                    // 移除iframe
+                    setTimeout(() => {
+                        if (iframe.parentNode) {
+                            iframe.parentNode.removeChild(iframe);
+                        }
+                    }, 1000);
+                    
+                    // 在新标签页打开链接
+                    window.open(href, '_blank');
+                };
+                
+                iframe.onerror = function() {
+                    // 如果加载出错，也恢复按钮状态
+                    btn.classList.remove('loading');
+                    if (buttonId === 'downloadBtn') {
+                        btn.classList.add('pulse');
+                    }
+                    
+                    // 移除iframe
+                    if (iframe.parentNode) {
+                        iframe.parentNode.removeChild(iframe);
+                    }
+                    
+                    // 仍然尝试在新标签页打开链接
+                    window.open(href, '_blank');
+                };
+                
+                // 添加到页面
+                document.body.appendChild(iframe);
+                
+                // 安全超时：如果10秒后仍未加载完成，强制恢复按钮状态
+                setTimeout(() => {
+                    if (btn.classList.contains('loading')) {
+                        btn.classList.remove('loading');
+                        if (buttonId === 'downloadBtn') {
+                            btn.classList.add('pulse');
+                        }
+                        
+                        // 移除iframe
+                        if (iframe.parentNode) {
+                            iframe.parentNode.removeChild(iframe);
+                        }
+                    }
+                }, 10000);
+            });
+        }
+
+        // 页面加载时显示随机图片并设置按钮事件
         document.addEventListener('DOMContentLoaded', function() {
             loadRandomImages();
             
-            // 按钮点击效果 - 下载按钮
-            document.getElementById('downloadBtn').addEventListener('click', function(e) {
-                // 创建点击反馈效果
-                const btn = e.currentTarget;
-                const rect = btn.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                const feedback = document.createElement('span');
-                feedback.className = 'click-feedback';
-                feedback.style.left = x + 'px';
-                feedback.style.top = y + 'px';
-                btn.appendChild(feedback);
-                
-                // 添加加载状态
-                btn.classList.add('loading');
-                btn.classList.remove('pulse');
-                
-                // 移除反馈元素
-                setTimeout(() => {
-                    feedback.remove();
-                }, 600);
-                
-                // 延迟后恢复按钮状态（模拟跳转完成）
-                setTimeout(() => {
-                    btn.classList.remove('loading');
-                    btn.classList.add('pulse');
-                }, 10000);
-            });
-            
-            // 按钮点击效果 - Telegram按钮
-            document.getElementById('telegramBtn').addEventListener('click', function(e) {
-                // 创建点击反馈效果
-                const btn = e.currentTarget;
-                const rect = btn.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                const feedback = document.createElement('span');
-                feedback.className = 'click-feedback';
-                feedback.style.left = x + 'px';
-                feedback.style.top = y + 'px';
-                btn.appendChild(feedback);
-                
-                // 添加加载状态
-                btn.classList.add('loading');
-                btn.classList.remove('pulse');
-                
-                // 移除反馈元素
-                setTimeout(() => {
-                    feedback.remove();
-                }, 600);
-                
-                // 延迟后恢复按钮状态（模拟跳转完成）
-                setTimeout(() => {
-                    btn.classList.remove('loading');
-                    btn.classList.add('pulse');
-                }, 10000);
-            });
+            // 设置两个按钮的事件处理
+            setupButtonHandler('downloadBtn');
+            setupButtonHandler('telegramBtn');
         });
 
         // 可选：添加键盘快捷键支持（按R键刷新图片）
@@ -321,5 +362,3 @@
     </script>
 </body>
 </html>
-
-
