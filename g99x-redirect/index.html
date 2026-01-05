@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Metachat - Meet New People</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     
     <!-- 优化的meta标签 -->
     <meta property="og:title" content="Metachat - Meet New People">
@@ -22,36 +22,55 @@
     <meta name="twitter:description" content="Join Metachat to connect with interesting people">
     <meta name="twitter:image" content="/images/social-preview.jpg">
     
+    <!-- 添加iOS相关meta -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#6C63FF">
+    <meta name="format-detection" content="telephone=no">
+    
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-text-size-adjust: 100%;
+            -webkit-font-smoothing: antialiased;
         }
         
         body {
             background: linear-gradient(135deg, #6C63FF 0%, #FF6584 100%);
             color: #FFFFFF;
             min-height: 100vh;
+            min-height: -webkit-fill-available;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             padding: 20px;
+            padding-bottom: calc(20px + env(safe-area-inset-bottom));
+            padding-top: calc(20px + env(safe-area-inset-top));
         }
         
         .container {
             width: 100%;
             max-width: 500px;
             text-align: center;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         .logo {
-            font-size: 32px;
-            font-weight: 700;
+            font-size: 38px;
+            font-weight: 800;
             margin-bottom: 15px;
             text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            letter-spacing: -0.5px;
         }
         
         .tagline {
@@ -59,6 +78,7 @@
             margin-bottom: 30px;
             opacity: 0.9;
             line-height: 1.4;
+            padding: 0 15px;
         }
         
         .image-grid {
@@ -66,26 +86,29 @@
             grid-template-columns: 1fr 1fr;
             gap: 15px;
             margin-bottom: 30px;
+            padding: 0 10px;
         }
         
         .random-image {
             width: 100%;
             aspect-ratio: 1;
-            border-radius: 12px;
+            border-radius: 16px;
             object-fit: cover;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
             transition: transform 0.3s ease;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
         }
         
-        .random-image:hover {
-            transform: scale(1.03);
+        .random-image.loading {
+            opacity: 0.7;
         }
         
         .btn-container {
             display: flex;
             flex-direction: column;
             gap: 15px;
-            margin: 20px 0;
+            margin: 25px 0;
+            padding: 0 15px;
         }
         
         .btn {
@@ -93,43 +116,59 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             color: #6C63FF;
-            padding: 18px 30px;
+            padding: 20px 30px;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 18px;
             border: none;
             width: 100%;
-            max-width: 300px;
-            transition: all 0.3s;
+            max-width: 320px;
+            margin: 0 auto;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 8px 25px rgba(0,0,0,0.15);
             backdrop-filter: blur(10px);
             cursor: pointer;
             position: relative;
+            overflow: hidden;
+            -webkit-user-select: none;
+            user-select: none;
         }
         
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.2);
-            background: rgba(255, 255, 255, 1);
+        /* 触摸反馈效果 */
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s;
+        }
+        
+        .btn:active::after {
+            width: 300px;
+            height: 300px;
         }
         
         .btn:active {
-            transform: translateY(0);
+            transform: scale(0.98);
         }
         
         .btn.loading {
             pointer-events: none;
-            opacity: 0.8;
         }
         
         .btn.loading .btn-text {
             opacity: 0;
         }
         
-        .btn.loading::after {
+        .btn.loading::before {
             content: "";
             position: absolute;
             width: 22px;
@@ -137,7 +176,7 @@
             border: 2px solid transparent;
             border-top: 2px solid #6C63FF;
             border-radius: 50%;
-            animation: spin 1s linear infinite;
+            animation: spin 0.8s linear infinite;
         }
         
         @keyframes spin {
@@ -145,63 +184,111 @@
             100% { transform: rotate(360deg); }
         }
         
-        .click-feedback {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: rgba(108, 99, 255, 0.3);
-            transform: scale(0);
-            animation: ripple 0.6s linear;
-            pointer-events: none;
-        }
-        
-        @keyframes ripple {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
-        
         .info-text {
             font-size: 14px;
             opacity: 0.7;
             margin-top: 20px;
             line-height: 1.5;
-        }
-        
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            padding: 0 20px;
         }
         
         .telegram-btn {
-            background: rgba(0, 136, 204, 0.9);
+            background: rgba(0, 136, 204, 0.95);
             color: white;
         }
         
-        .telegram-btn:hover {
+        .telegram-btn:active {
             background: rgba(0, 136, 204, 1);
         }
         
-        .telegram-btn.loading::after {
+        .telegram-btn.loading::before {
             border-top: 2px solid white;
         }
         
-        /* 为Telegram按钮添加脉冲动画 */
-        .telegram-pulse {
-            animation: telegram-pulse 2s infinite;
+        /* 加载遮罩 */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(108, 99, 255, 0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
         
-        @keyframes telegram-pulse {
-            0% { transform: scale(1); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
-            50% { transform: scale(1.05); box-shadow: 0 12px 30px rgba(0, 136, 204, 0.4); }
-            100% { transform: scale(1); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+        .overlay-text {
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 32px;
+            }
+            
+            .tagline {
+                font-size: 16px;
+                margin-bottom: 25px;
+            }
+            
+            .image-grid {
+                gap: 12px;
+                margin-bottom: 25px;
+            }
+            
+            .btn {
+                padding: 18px 25px;
+                font-size: 17px;
+            }
+            
+            .info-text {
+                font-size: 13px;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .logo {
+                font-size: 28px;
+            }
+            
+            .tagline {
+                font-size: 15px;
+            }
+            
+            .image-grid {
+                gap: 10px;
+            }
+            
+            .btn {
+                padding: 16px 20px;
+                font-size: 16px;
+            }
+        }
+        
+        /* 防止长按菜单 */
+        .btn, .random-image {
+            -webkit-touch-callout: none;
+        }
+        
+        /* 安全加载占位符 */
+        .image-placeholder {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 14px;
         }
     </style>
 </head>
@@ -216,118 +303,240 @@
         </div>
         
         <div class="btn-container">
-            <a href="https://p78t.com/l/WXWddKu3" class="btn pulse" id="downloadBtn" target="_blank">
+            <button class="btn" id="joinBtn">
                 <span class="btn-text">Join Now</span>
-            </a>
+            </button>
             
-            <a href="https://t.me/+FMBw5lZaQ0wwYjll" class="btn telegram-btn telegram-pulse" id="telegramBtn" target="_blank">
+            <button class="btn telegram-btn" id="telegramBtn">
                 <span class="btn-text">My Telegram Channel</span>
-            </a>
+            </button>
         </div>
         
         <p class="info-text">Join thousands of users worldwide • 18+ only</p>
     </div>
+    
+    <!-- 加载遮罩 -->
+    <div class="overlay" id="overlay">
+        <div class="spinner"></div>
+        <div class="overlay-text">Preparing your experience...</div>
+    </div>
 
     <script>
-        // 随机图片功能
+        // 安全配置
+        const SECURE_CONFIG = {
+            joinUrl: 'https://p78t.com/l/WXWddKu3',
+            telegramUrl: 'https://t.me/+FMBw5lZaQ0wwYjll',
+            delayBeforeRedirect: 300, // 毫秒
+            imageCount: 20,
+            imagesToShow: 4
+        };
+        
+        // 状态管理
+        const appState = {
+            isRedirecting: false,
+            lastClickTime: 0,
+            clickCount: 0
+        };
+        
+        // 安全的跳转函数
+        function safeRedirect(url, type) {
+            if (appState.isRedirecting) return;
+            
+            // 防止频繁点击
+            const now = Date.now();
+            if (now - appState.lastClickTime < 1000) {
+                return;
+            }
+            
+            appState.isRedirecting = true;
+            appState.lastClickTime = now;
+            appState.clickCount++;
+            
+            // 显示加载遮罩
+            const overlay = document.getElementById('overlay');
+            overlay.style.display = 'flex';
+            
+            // 设置按钮加载状态
+            const btn = type === 'join' ? document.getElementById('joinBtn') : document.getElementById('telegramBtn');
+            btn.classList.add('loading');
+            
+            // 轻微随机延迟（100-500ms）模拟真实用户行为
+            const delay = SECURE_CONFIG.delayBeforeRedirect + Math.random() * 200;
+            
+            setTimeout(() => {
+                try {
+                    // 方法1：尝试在新窗口打开
+                    const newWindow = window.open('', '_blank');
+                    
+                    if (newWindow) {
+                        // 先设置空白页面，再重定向
+                        newWindow.location.href = 'about:blank';
+                        
+                        setTimeout(() => {
+                            try {
+                                newWindow.location.replace(url);
+                            } catch (e) {
+                                newWindow.location.href = url;
+                            }
+                            
+                            // 隐藏遮罩
+                            setTimeout(() => {
+                                overlay.style.display = 'none';
+                                btn.classList.remove('loading');
+                                appState.isRedirecting = false;
+                            }, 500);
+                            
+                        }, 50);
+                    } else {
+                        // 方法2：如果弹窗被阻止，使用中间页面技术
+                        const tempIframe = document.createElement('iframe');
+                        tempIframe.style.display = 'none';
+                        tempIframe.src = url;
+                        document.body.appendChild(tempIframe);
+                        
+                        // 同时尝试在当前页面跳转
+                        setTimeout(() => {
+                            window.location.href = url;
+                        }, 100);
+                        
+                        // 移除iframe并恢复状态
+                        setTimeout(() => {
+                            tempIframe.remove();
+                            overlay.style.display = 'none';
+                            btn.classList.remove('loading');
+                            appState.isRedirecting = false;
+                        }, 1000);
+                    }
+                } catch (error) {
+                    // 如果所有方法都失败，直接跳转
+                    setTimeout(() => {
+                        window.location.href = url;
+                    }, 300);
+                }
+            }, delay);
+        }
+        
+        // 加载随机图片
         function loadRandomImages() {
             const container = document.getElementById('imageGrid');
-            const totalImages = 20; // 总图片数量
-            const imagesToShow = 4; // 每次显示的图片数量
-            
-            // 清空容器
             container.innerHTML = '';
+            
+            // 创建占位符
+            for (let i = 0; i < SECURE_CONFIG.imagesToShow; i++) {
+                const placeholder = document.createElement('div');
+                placeholder.className = 'image-placeholder';
+                placeholder.innerHTML = 'Loading...';
+                container.appendChild(placeholder);
+            }
             
             // 生成不重复的随机图片索引
             const selectedIndices = new Set();
-            while (selectedIndices.size < imagesToShow) {
-                const randomIndex = Math.floor(Math.random() * totalImages) + 1;
+            while (selectedIndices.size < SECURE_CONFIG.imagesToShow) {
+                const randomIndex = Math.floor(Math.random() * SECURE_CONFIG.imageCount) + 1;
                 selectedIndices.add(randomIndex);
             }
             
-            // 创建并添加图片元素
-            selectedIndices.forEach(index => {
-                const img = document.createElement('img');
-                img.className = 'random-image';
-                img.src = `images/${index}.jpg`;
-                img.alt = `User photo ${index}`;
-                img.loading = 'lazy'; // 延迟加载优化性能
-                
-                // 添加加载错误处理
-                img.onerror = function() {
-                    // 如果图片加载失败，使用占位图
-                    this.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><rect width="200" height="200" fill="%23f0f0f0"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="14" fill="%23999">Photo</text></svg>';
-                };
-                
-                container.appendChild(img);
+            // 预加载图片
+            const imagePromises = Array.from(selectedIndices).map(index => {
+                return new Promise((resolve) => {
+                    const img = new Image();
+                    img.onload = () => resolve({ img, index });
+                    img.onerror = () => resolve({ img: null, index });
+                    img.src = `images/${index}.jpg`;
+                });
             });
-        }
-
-        // 智能按钮点击处理
-        function setupButtonHandler(buttonId) {
-            const btn = document.getElementById(buttonId);
             
-            btn.addEventListener('click', function(e) {
-                // 创建点击反馈效果
-                const rect = btn.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
+            Promise.all(imagePromises).then(results => {
+                container.innerHTML = '';
                 
-                const feedback = document.createElement('span');
-                feedback.className = 'click-feedback';
-                feedback.style.left = x + 'px';
-                feedback.style.top = y + 'px';
-                btn.appendChild(feedback);
-                
-                // 添加加载状态
-                btn.classList.add('loading');
-                
-                // 移除脉冲动画
-                if (btn.classList.contains('pulse')) {
-                    btn.classList.remove('pulse');
-                }
-                if (btn.classList.contains('telegram-pulse')) {
-                    btn.classList.remove('telegram-pulse');
-                }
-                
-                // 移除反馈元素
-                setTimeout(() => {
-                    feedback.remove();
-                }, 600);
-                
-                // 使用更短的延迟来恢复按钮状态
-                setTimeout(() => {
-                    btn.classList.remove('loading');
+                results.forEach(({ img, index }) => {
+                    const imageContainer = document.createElement('div');
                     
-                    // 恢复脉冲动画
-                    if (buttonId === 'downloadBtn') {
-                        btn.classList.add('pulse');
-                    } else if (buttonId === 'telegramBtn') {
-                        btn.classList.add('telegram-pulse');
+                    if (img && img.complete) {
+                        const finalImg = img.cloneNode();
+                        finalImg.className = 'random-image';
+                        finalImg.alt = `User photo ${index}`;
+                        finalImg.loading = 'lazy';
+                        
+                        // 添加淡入效果
+                        finalImg.style.opacity = '0';
+                        setTimeout(() => {
+                            finalImg.style.transition = 'opacity 0.5s ease';
+                            finalImg.style.opacity = '1';
+                        }, 100);
+                        
+                        imageContainer.appendChild(finalImg);
+                    } else {
+                        // 使用备用SVG
+                        const svg = document.createElement('div');
+                        svg.className = 'image-placeholder';
+                        svg.innerHTML = '👤';
+                        imageContainer.appendChild(svg);
                     }
-                }, 3000); // 1.5秒后恢复
-                
-                // 允许默认的链接跳转行为继续
+                    
+                    container.appendChild(imageContainer);
+                });
             });
         }
-
-        // 页面加载时显示随机图片并设置按钮事件
+        
+        // 初始化
         document.addEventListener('DOMContentLoaded', function() {
+            // 加载图片
             loadRandomImages();
             
-            // 设置两个按钮的事件处理
-            setupButtonHandler('downloadBtn');
-            setupButtonHandler('telegramBtn');
+            // 设置按钮事件
+            document.getElementById('joinBtn').addEventListener('click', () => {
+                safeRedirect(SECURE_CONFIG.joinUrl, 'join');
+            });
+            
+            document.getElementById('telegramBtn').addEventListener('click', () => {
+                safeRedirect(SECURE_CONFIG.telegramUrl, 'telegram');
+            });
+            
+            // 添加触摸事件支持
+            ['touchstart', 'touchend'].forEach(eventType => {
+                document.getElementById('joinBtn').addEventListener(eventType, (e) => e.preventDefault());
+                document.getElementById('telegramBtn').addEventListener(eventType, (e) => e.preventDefault());
+            });
+            
+            // 防止右键检查
+            document.addEventListener('contextmenu', (e) => {
+                if (e.target.classList.contains('btn')) {
+                    e.preventDefault();
+                }
+            });
+            
+            // 防止拖拽
+            document.addEventListener('dragstart', (e) => {
+                if (e.target.classList.contains('btn')) {
+                    e.preventDefault();
+                }
+            });
+            
+            // 监听页面可见性变化（用户切换标签/应用时）
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    // 页面被隐藏，可以做一些清理
+                }
+            });
         });
-
-        // 可选：添加键盘快捷键支持（按R键刷新图片）
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'r' || e.key === 'R') {
-                loadRandomImages();
+        
+        // 防止页面被iframe嵌入
+        if (window.top !== window.self) {
+            window.top.location = window.self.location;
+        }
+        
+        // 页面离开时的处理
+        window.addEventListener('beforeunload', () => {
+            appState.isRedirecting = false;
+        });
+        
+        // 移动端键盘弹出处理
+        window.addEventListener('resize', () => {
+            if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') {
+                window.scrollTo(0, 0);
             }
         });
     </script>
 </body>
 </html>
-
-
